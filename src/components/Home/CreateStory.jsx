@@ -3,12 +3,12 @@ import React from "react";
 const CreateStory = () => {
   return (
     <div>
-      <h1 className="font-bold text-3xl">Create Your Own Story</h1>
-      <p className="text-gray-400 text-sm">
+      <h1 className="font-bold text-3xl p-4">Create Your Own Story</h1>
+      <p className="text-gray-400 text-sm ml-4">
         Bring Your Ideas to Life with Our Easy-to-Use Creation Tool
       </p>
 
-      <div className="flex gap-4 mt-4">
+      <div className="flex gap-4 mt-4 p-4">
         <div className="flex flex-col bg-ssorange-light rounded-lg p-8">
           <input
             className="border border-gray-300 rounded-lg px-2 py-1"
