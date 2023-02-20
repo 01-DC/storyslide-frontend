@@ -6,23 +6,25 @@ import home from "../../assets/Home_icon.svg"
 
 const SideBar = () => {
 	return (
-		<div className="h-screen fixed top-0 left-0 border-r-2">
-			<div class="">
-				<ul class="space-y-2">
-					<li className="w-full">
+		<div className="h-full min-h-screen border-r-2">
+			<div className="fixed top-0 left-0">
+				<ul className="space-y-2 px-2 my-2">
+					<li className="">
 						<NavLink
 							to="/"
-							class="flex items-center p-2 text-base font-normal rounded-lg">
+							className="flex items-center p-2 text-base font-normal rounded-lg hover:bg-gray-400">
 							<img src={home} alt="" />
-							Home
+							<span className="flex-1 ml-3 whitespace-nowrap">
+								Home
+							</span>
 						</NavLink>
 					</li>
 					<li>
 						<NavLink
 							to="/saved"
-							class="block flex items-center p-2 text-base font-normal rounded-lg">
+							className="flex items-center p-2 text-base font-normal rounded-lg hover:bg-gray-400">
 							<img src={saved} alt="" />
-							<span class="flex-1 ml-3 whitespace-nowrap">
+							<span className="flex-1 ml-3 whitespace-nowrap">
 								Saved
 							</span>
 						</NavLink>
@@ -30,9 +32,9 @@ const SideBar = () => {
 					<li>
 						<NavLink
 							to="/templates"
-							class="block flex items-center p-2 text-base font-normal rounded-lg">
+							className="block flex items-center p-2 text-base font-normal rounded-lg hover:bg-gray-400">
 							<img src={temp} alt="" />
-							<span class="flex-1 ml-3 whitespace-nowrap">
+							<span className="flex-1 ml-3 whitespace-nowrap">
 								Templates
 							</span>
 						</NavLink>
