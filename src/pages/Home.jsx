@@ -1,17 +1,17 @@
-import React from "react";
-import CreateStory from "../components/Home/CreateStory";
-import Templates from "../components/Home/Templates";
-import YourStories from "../components/Home/YourStories";
-import HomeLayout from '../Layouts/HomeLayout'
+import React from "react"
+import CreateStory from "../components/home/CreateStory"
+import Templates from "../components/home/Templates"
+import YourStories from "../components/home/YourStories"
+import HomeLayout from "../layouts/HomeLayout"
 
 const Home = () => {
-  return (
-    <HomeLayout>
-      <CreateStory />
-      <YourStories />
-      <Templates />
-    </HomeLayout>
-  );
-};
+	return (
+		<HomeLayout>
+			<CreateStory />
+			<YourStories />
+			<Templates />
+		</HomeLayout>
+	)
+}
 
-export default Home;
+export default Home

@@ -1,5 +1,5 @@
 import React from "react"
-import HomeLayout from "../Layouts/HomeLayout"
+import HomeLayout from "../layouts/HomeLayout"
 
 const SavedStories = () => {
 	return (

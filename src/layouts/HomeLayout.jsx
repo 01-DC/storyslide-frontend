@@ -1,6 +1,6 @@
 import React from "react"
-import Navbar from "../components/Shared/Navbar"
-import SideBar from "../components/Shared/SideBar"
+import Navbar from "../components/shared/Navbar"
+import SideBar from "../components/shared/SideBar"
 
 const HomeLayout = ({ children }) => {
 	return (
