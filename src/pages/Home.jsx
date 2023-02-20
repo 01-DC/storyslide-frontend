@@ -2,16 +2,15 @@ import React from "react";
 import CreateStory from "../components/Home/CreateStory";
 import Templates from "../components/Home/Templates";
 import YourStories from "../components/Home/YourStories";
-import SideBar from "../components/Home/SideBar";
+import HomeLayout from '../Layouts/HomeLayout'
 
 const Home = () => {
   return (
-    <div className = " ">
-      <SideBar />
+    <HomeLayout>
       <CreateStory />
       <YourStories />
       <Templates />
-    </div>
+    </HomeLayout>
   );
 };
 

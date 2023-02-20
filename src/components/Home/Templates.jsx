@@ -40,7 +40,7 @@ const templates = [
 
 const Templates = () => {
   return (
-    <div className = "ml-36">
+    <div className = "">
       <div className="flex justify-between items-center p-4 ">
         <h1 className="font-bold text-3xl">Templates</h1>
         <div className="flex gap-4">

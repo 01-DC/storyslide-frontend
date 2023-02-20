@@ -2,7 +2,7 @@ import React from "react";
 
 const CreateStory = () => {
   return (
-    <div className = "ml-36 border-l-2">
+    <div className = "">
       <h1 className="font-bold text-3xl p-4">Create Your Own Story</h1>
       <p className="text-gray-400 text-sm ml-4">
         Bring Your Ideas to Life with Our Easy-to-Use Creation Tool

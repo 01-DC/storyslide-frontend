@@ -22,7 +22,7 @@ const stories = [
 
 const YourStories = () => {
   return (
-    <div className = "ml-36 border-l-2 ">
+    <div className = "">
       <div className="flex justify-between items-center p-4">
         <h1 className="font-bold text-3xl">Your Stories</h1>
         <div className="flex gap-4">
