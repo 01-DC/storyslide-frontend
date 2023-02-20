@@ -40,8 +40,8 @@ const templates = [
 
 const Templates = () => {
   return (
-    <div>
-      <div className="flex justify-between items-center p-4">
+    <div className = "ml-36">
+      <div className="flex justify-between items-center p-4 ">
         <h1 className="font-bold text-3xl">Templates</h1>
         <div className="flex gap-4">
           <img src={left} alt="" />
