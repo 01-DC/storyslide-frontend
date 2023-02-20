@@ -1,4 +1,5 @@
 import React from "react"
+import { Link } from "react-router-dom"
 import create from "../../assets/Create_icon.svg"
 
 const CreateStory = () => {
@@ -18,9 +19,11 @@ const CreateStory = () => {
 						Convert to stories
 					</button>
 				</div>
-				<div className="bg-ssorange-light flex flex-col items-center p-8 rounded-lg">
-					<img src={create} alt="" />
-					<p className="text-ssorange">Create Stories</p>
+				<div className="bg-ssorange-light p-8 rounded-lg">
+					<Link to="/editor" className="flex flex-col items-center">
+						<img src={create} alt="" />
+						<p className="text-ssorange">Create Stories</p>
+					</Link>
 				</div>
 			</div>
 		</div>

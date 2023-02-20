@@ -1,8 +1,9 @@
 import React from "react"
 import { Routes, Route } from "react-router-dom"
-import Home from "./pages/home"
+import Home from "./pages/Home"
 import SavedStories from "./pages/SavedStories"
 import TemplatesList from "./pages/TemplatesList"
+import CanvaEditor from "./pages/CanvaEditor"
 
 const App = () => {
 	return (
@@ -11,6 +12,7 @@ const App = () => {
 				<Route path="/" element={<Home />} />
 				<Route path="/saved" element={<SavedStories />} />
 				<Route path="/templates" element={<TemplatesList />} />
+				<Route path="/editor" element={<CanvaEditor />} />
 			</Routes>
 		</div>
 	)

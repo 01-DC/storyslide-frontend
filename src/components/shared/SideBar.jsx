@@ -11,13 +11,17 @@ const SideBar = () => {
 		<div className="h-full min-h-screen border-r-2">
 			<div className="sticky top-0 left-0 pt-2">
 				<ul className="space-y-2 px-2">
-					<li className="p-2 text-black font-bold flex items-center gap-2 mb-8">
+					<li className="p-2 text-black text-lg font-bold flex items-center gap-2 mb-8">
 						<img src={logo} alt="" />
 						Storyslide
 					</li>
-					<li className="bg-ssorange rounded-lg p-2 text-white flex items-center gap-2">
-						<img src={stories} alt="" />
-						Create Stories
+					<li>
+						<NavLink
+							to="/editor"
+							className="bg-ssorange rounded-lg p-2 text-white flex items-center gap-2">
+							<img src={stories} alt="" />
+							Create Stories
+						</NavLink>
 					</li>
 					<li className="">
 						<NavLink
@@ -42,7 +46,7 @@ const SideBar = () => {
 					<li>
 						<NavLink
 							to="/templates"
-							className="block flex items-center p-2 text-base font-normal rounded-lg hover:bg-gray-200">
+							className="flex items-center p-2 text-base font-normal rounded-lg hover:bg-gray-200">
 							<img src={temp} alt="" />
 							<span className="flex-1 ml-3 whitespace-nowrap">
 								Templates
