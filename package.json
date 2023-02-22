@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "react": "^18.2.0",
+    "react-design-editor": "^0.0.52",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.8.1"
   },

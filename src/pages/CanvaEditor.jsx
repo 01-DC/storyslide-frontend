@@ -1,10 +1,13 @@
 import React from "react"
 import EditorLayout from "../layouts/EditorLayout"
+import * as RDE from "react-design-editor"
 
 const CanvaEditor = () => {
 	return (
 		<EditorLayout>
-			<div>Editor</div>
+			<div>
+				<RDE.Canvas  />
+			</div>
 		</EditorLayout>
 	)
 }

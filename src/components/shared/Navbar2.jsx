@@ -4,7 +4,7 @@ import upgrade from "../../assets/Groupupgrade.svg"
 
 const Navbar2 = () => {
 	return (
-		<div className="sticky top-0 border-b-2 flex justify-between items-center px-4 py-2 bg-white">
+		<div className="sticky z-20 top-0 border-b-2 flex justify-between items-center px-4 py-2 bg-white">
 			<div className="p-2 text-black text-lg font-bold flex items-center gap-2">
 				<img src={logo} alt="" />
 				Storyslide
