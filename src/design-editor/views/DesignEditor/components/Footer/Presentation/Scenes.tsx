@@ -1,10 +1,10 @@
 import React from "react"
 import { useStyletron } from "baseui"
-import Add from "./components/Icons/Add"
-import useDesignEditorPages from "./hooks/useDesignEditorScenes"
-import { DesignEditorContext } from "./contexts/DesignEditor"
+import Add from "../../../../../components/Icons/Add"
+import useDesignEditorPages from "../../../../../hooks/useDesignEditorScenes"
+import { DesignEditorContext } from "../../../../../contexts/DesignEditor"
 import { nanoid } from "nanoid"
-import { getDefaultTemplate } from "./constants/design-editor"
+import { getDefaultTemplate } from "../../../../../constants/design-editor"
 import { useEditor, useFrame } from "@layerhub-io/react"
 import { IScene } from "@layerhub-io/types"
 import {
@@ -25,7 +25,7 @@ import {
 } from "@dnd-kit/modifiers"
 import SceneItem from "./SceneItem"
 import { Block } from "baseui/block"
-import useContextMenuTimelineRequest from "./hooks/useContextMenuTimelineRequest"
+import useContextMenuTimelineRequest from "../../../../../hooks/useContextMenuTimelineRequest"
 import SceneContextMenu from "./SceneContextMenu"
 
 const Scenes = () => {

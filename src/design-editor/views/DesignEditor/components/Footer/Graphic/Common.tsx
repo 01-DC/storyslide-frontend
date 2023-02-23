@@ -1,7 +1,7 @@
 import React from "react"
 import { styled } from "baseui"
 import { Theme } from "baseui/theme"
-import Icons from "./components/Icons"
+import Icons from "../../../../../components/Icons"
 import { Button, KIND, SIZE } from "baseui/button"
 import { Slider } from "baseui/slider"
 import { Input } from "baseui/input"

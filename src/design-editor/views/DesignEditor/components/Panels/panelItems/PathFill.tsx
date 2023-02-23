@@ -1,6 +1,6 @@
 import React from "react"
 import { Block } from "baseui/block"
-import Scrollable from "./components/Scrollable"
+import Scrollable from "../../../../../components/Scrollable"
 import { HexColorPicker } from "react-colorful"
 import { Delete } from "baseui/icon"
 import { throttle } from "lodash"

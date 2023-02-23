@@ -1,5 +1,5 @@
 import { createReducer, current } from "@reduxjs/toolkit"
-import { IComponent } from "./interfaces/DesignEditor"
+import { IComponent } from "../../../interfaces/DesignEditor"
 import { setPublicComponents } from "./actions"
 
 export interface ComponentsState {

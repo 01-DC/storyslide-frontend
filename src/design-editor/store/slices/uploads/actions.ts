@@ -1,7 +1,7 @@
-import { IUpload, Uploading } from "./interfaces/editor"
-import { uniqueFilename } from "./utils/unique"
+import { IUpload, Uploading } from "../../../interfaces/editor"
+import { uniqueFilename } from "../../../utils/unique"
 import { createAsyncThunk, createAction } from "@reduxjs/toolkit"
-import api from "./services/api"
+import api from "../../../services/api"
 import axios from "axios"
 import mime from "mime/lite"
 

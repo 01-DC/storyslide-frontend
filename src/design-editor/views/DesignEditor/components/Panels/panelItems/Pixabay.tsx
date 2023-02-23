@@ -1,16 +1,16 @@
 import React, { useState } from "react"
 import { useEditor } from "@layerhub-io/react"
 import { Block } from "baseui/block"
-import Scrollable from "./components/Scrollable"
-import InfiniteScrolling from "./components/InfiniteScrolling"
+import Scrollable from "../../../../../components/Scrollable"
+import InfiniteScrolling from "../../../../../components/InfiniteScrolling"
 import { IStaticImage } from "@layerhub-io/types"
-import Search from "./components/Icons/Search"
+import Search from "../../../../../components/Icons/Search"
 import { Input } from "baseui/input"
-import LazyLoadImage from "./components/LazyLoadImage"
+import LazyLoadImage from "../../../../../components/LazyLoadImage"
 import { SIZE, Spinner } from "baseui/spinner"
-import api from "./services/api"
-import AngleDoubleLeft from "./components/Icons/AngleDoubleLeft"
-import useSetIsSidebarOpen from "./hooks/useSetIsSidebarOpen"
+import api from "../../../../../services/api"
+import AngleDoubleLeft from "../../../../../components/Icons/AngleDoubleLeft"
+import useSetIsSidebarOpen from "../../../../../hooks/useSetIsSidebarOpen"
 
 const Pixabay = () => {
 	const editor = useEditor()

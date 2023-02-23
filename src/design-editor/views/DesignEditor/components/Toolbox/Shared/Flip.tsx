@@ -4,8 +4,8 @@ import { Block } from "baseui/block"
 import { Button, SIZE, KIND } from "baseui/button"
 import { PLACEMENT, StatefulPopover } from "baseui/popover"
 import { StatefulTooltip } from "baseui/tooltip"
-import FlipHorizontal from "./components/Icons/FlipHorizontal"
-import FlipVertical from "./components/Icons/FlipVertical"
+import FlipHorizontal from "../../../../../components/Icons/FlipHorizontal"
+import FlipVertical from "../../../../../components/Icons/FlipVertical"
 
 const Flip = () => {
 	const editor = useEditor()

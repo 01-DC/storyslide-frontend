@@ -3,7 +3,7 @@ import { Block } from "baseui/block"
 import { useEditor } from "@layerhub-io/react"
 import { PLACEMENT, StatefulTooltip } from "baseui/tooltip"
 import { Button, SIZE, KIND } from "baseui/button"
-import UnlockedIcon from "./components/Icons/Unlocked"
+import UnlockedIcon from "../../../../components/Icons/Unlocked"
 
 const Locked = () => {
 	const editor = useEditor()

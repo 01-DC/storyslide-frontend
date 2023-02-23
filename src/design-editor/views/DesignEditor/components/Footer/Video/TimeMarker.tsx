@@ -1,7 +1,7 @@
 import React from "react"
 import { useTimer } from "@layerhub-io/use-timer"
 import { Block } from "baseui/block"
-import { DesignEditorContext } from "./contexts/DesignEditor"
+import { DesignEditorContext } from "../../../../../contexts/DesignEditor"
 
 const SCALE_FACTOR = 1
 

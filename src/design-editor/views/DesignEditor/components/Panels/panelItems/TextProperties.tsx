@@ -1,8 +1,8 @@
 // @ts-nocheck
 import React from "react"
-import InformationCircleOutline from "./components/Icons/InformationCircleOutline"
-import Underline from "./components/Icons/Underline"
-import Spacing from "./components/Icons/Spacing"
+import InformationCircleOutline from "../../../../../components/Icons/InformationCircleOutline"
+import Underline from "../../../../../components/Icons/Underline"
+import Spacing from "../../../../../components/Icons/Spacing"
 
 import Shadow from "./Common/Shadow"
 import { Input, SIZE } from "baseui/input"

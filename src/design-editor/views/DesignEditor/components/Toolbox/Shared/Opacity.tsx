@@ -6,7 +6,7 @@ import { ILayer } from "@layerhub-io/types"
 import { StatefulPopover, PLACEMENT } from "baseui/popover"
 import { useActiveObject, useEditor } from "@layerhub-io/react"
 import { Button, SIZE, KIND } from "baseui/button"
-import OpacityIcon from "./components/Icons/Opacity."
+import OpacityIcon from "../../../../..//components/Icons/Opacity."
 import { StatefulTooltip } from "baseui/tooltip"
 
 const Opacity = () => {

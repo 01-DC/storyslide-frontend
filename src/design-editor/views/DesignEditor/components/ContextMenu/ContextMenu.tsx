@@ -4,14 +4,14 @@ import {
 	useEditor,
 } from "@layerhub-io/react"
 import { useStyletron } from "baseui"
-import BringToFront from "./components/Icons/BringToFront"
-import Delete from "./components/Icons/Delete"
-import Duplicate from "./components/Icons/Duplicate"
-import Elements from "./components/Icons/Elements"
-import Locked from "./components/Icons/Locked"
-import Paste from "./components/Icons/Paste"
-import SendToBack from "./components/Icons/SendToBack"
-import Unlocked from "./components/Icons/Unlocked"
+import BringToFront from "../../../../components/Icons/BringToFront"
+import Delete from "../../../../components/Icons/Delete"
+import Duplicate from "../../../../components/Icons/Duplicate"
+import Elements from "../../../../components/Icons/Elements"
+import Locked from "../../../../components/Icons/Locked"
+import Paste from "../../../../components/Icons/Paste"
+import SendToBack from "../../../../components/Icons/SendToBack"
+import Unlocked from "../../../../components/Icons/Unlocked"
 
 const ContextMenu = () => {
 	const contextMenuRequest = useContextMenuRequest()

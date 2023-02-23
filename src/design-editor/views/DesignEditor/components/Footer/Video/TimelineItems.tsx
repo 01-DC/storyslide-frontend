@@ -1,5 +1,5 @@
 import React from "react"
-import { DesignEditorContext } from "./contexts/DesignEditor"
+import { DesignEditorContext } from "../../../../../contexts/DesignEditor"
 import { useEditor, useFrame } from "@layerhub-io/react"
 import {
 	DndContext,

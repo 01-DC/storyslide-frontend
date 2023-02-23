@@ -1,6 +1,6 @@
-import { IFontFamily } from "./interfaces/editor"
+import { IFontFamily } from "../../../interfaces/editor"
 import { createAsyncThunk, createAction } from "@reduxjs/toolkit"
-import api from "./services/api"
+import api from "../../../services/api"
 import { orderBy } from "lodash"
 
 interface QueryFont {

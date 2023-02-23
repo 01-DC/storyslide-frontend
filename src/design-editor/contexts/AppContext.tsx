@@ -1,4 +1,4 @@
-import { PanelType } from "./constants/app-options"
+import { PanelType } from "../constants/app-options"
 import React, { createContext, useState } from "react"
 
 type Template = any

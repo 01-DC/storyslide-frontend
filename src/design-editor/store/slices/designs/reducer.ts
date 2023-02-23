@@ -1,5 +1,5 @@
 import { createReducer } from "@reduxjs/toolkit"
-import { IDesign } from "./interfaces/DesignEditor"
+import { IDesign } from "../../../interfaces/DesignEditor"
 import { setPublicDesigns } from "./actions"
 
 export interface DesignsState {

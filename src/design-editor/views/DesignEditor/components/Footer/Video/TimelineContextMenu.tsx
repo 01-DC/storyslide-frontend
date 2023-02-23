@@ -1,14 +1,14 @@
 import React from "react"
 import { Block } from "baseui/block"
-import useDesignEditorContext from "./hooks/useDesignEditorContext"
+import useDesignEditorContext from "../../../../../hooks/useDesignEditorContext"
 import { nanoid } from "nanoid"
-import useOnClickOutside from "./hooks/useOnClickOutside"
+import useOnClickOutside from "../../../../../hooks/useOnClickOutside"
 import {
 	findSceneIndexByTime,
 	getMaxTime,
-} from "./views/DesignEditor/utils/scenes"
+} from "../../../../../views/DesignEditor/utils/scenes"
 import { useTimer } from "@layerhub-io/use-timer"
-import { getDefaultTemplate } from "./constants/design-editor"
+import { getDefaultTemplate } from "../../../../../constants/design-editor"
 import { useEditor, useFrame } from "@layerhub-io/react"
 
 const TimelineContextMenu = () => {

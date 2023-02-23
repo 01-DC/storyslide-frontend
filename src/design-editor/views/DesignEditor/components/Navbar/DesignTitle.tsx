@@ -1,9 +1,9 @@
 import React from "react"
 import { Input } from "baseui/input"
 import { Block } from "baseui/block"
-import CloudCheck from "./components/Icons/CloudCheck"
+import CloudCheck from "../../../../components/Icons/CloudCheck"
 import { StatefulTooltip } from "baseui/tooltip"
-import useDesignEditorContext from "./hooks/useDesignEditorContext"
+import useDesignEditorContext from "../../../../hooks/useDesignEditorContext"
 
 interface State {
 	name: string

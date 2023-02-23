@@ -1,6 +1,6 @@
 import { createAsyncThunk, createAction } from "@reduxjs/toolkit"
-import { IComponent } from "./interfaces/DesignEditor"
-import api from "./services/api"
+import { IComponent } from "../../../interfaces/DesignEditor"
+import api from "../../../services/api"
 
 export const setPublicComponents = createAction<IComponent[]>(
 	"components/setPublicComponents"

@@ -1,6 +1,6 @@
-import { Resource } from "./interfaces/editor"
+import { Resource } from "../../../interfaces/editor"
 import { createAsyncThunk, createAction } from "@reduxjs/toolkit"
-import api from "./services/api"
+import api from "../../../services/api"
 
 export const setPixabayResources = createAction<Resource[]>(
 	"resources/setPixabayResources"

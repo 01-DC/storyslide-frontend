@@ -2,8 +2,8 @@ import React from "react"
 import { Block } from "baseui/block"
 import ReactPlayer from "react-player"
 import { useEditor } from "@layerhub-io/react"
-import Loading from "./components/Loading"
-import useDesignEditorPages from "./hooks/useDesignEditorScenes"
+import Loading from "../../../../components/Loading"
+import useDesignEditorPages from "../../../../hooks/useDesignEditorScenes"
 
 const Video = () => {
 	const editor = useEditor()

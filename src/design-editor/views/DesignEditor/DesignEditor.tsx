@@ -6,6 +6,7 @@ import VideoEditor from "./VideoEditor"
 import useDesignEditorContext from "../../hooks/useDesignEditorContext"
 import Preview from "./components/Preview"
 import ContextMenu from "./components/ContextMenu"
+import React from "react"
 
 const DesignEditor = () => {
 	const editorType = useEditorType()

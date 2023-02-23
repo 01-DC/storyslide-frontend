@@ -1,10 +1,10 @@
 import React from "react"
 import { Block } from "baseui/block"
-import Scrollable from "./components/Scrollable"
+import Scrollable from "../../../../../components/Scrollable"
 import { Delete } from "baseui/icon"
 import { throttle } from "lodash"
 import { useActiveObject, useEditor } from "@layerhub-io/react"
-import { TEXT_EFFECTS } from "./constants/design-editor"
+import { TEXT_EFFECTS } from "../../../../../constants/design-editor"
 import Outline from "./Common/Outline"
 import Shadow from "./Common/Shadow"
 

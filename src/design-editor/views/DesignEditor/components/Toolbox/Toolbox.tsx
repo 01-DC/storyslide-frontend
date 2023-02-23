@@ -1,9 +1,9 @@
 import React from "react"
 import { useActiveObject, useEditor } from "@layerhub-io/react"
-import getSelectionType from "./utils/get-selection-type"
+import getSelectionType from "../../../../utils/get-selection-type"
 import { styled } from "baseui"
 import Items from "./Items"
-import useAppContext from "./hooks/useAppContext"
+import useAppContext from "../../../../hooks/useAppContext"
 import { ILayer } from "@layerhub-io/types"
 
 const DEFAULT_TOOLBOX = "Canvas"

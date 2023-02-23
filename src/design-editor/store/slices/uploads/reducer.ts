@@ -1,4 +1,4 @@
-import { IUpload, Uploading } from "./interfaces/editor"
+import { IUpload, Uploading } from "../../../interfaces/editor"
 import { createReducer } from "@reduxjs/toolkit"
 import { closeUploading, setUploading, setUploads } from "./actions"
 

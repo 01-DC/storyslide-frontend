@@ -1,9 +1,9 @@
 import React from "react"
 import { useStyletron } from "baseui"
-import Add from "./components/Icons/Add"
-import { DesignEditorContext } from "./contexts/DesignEditor"
+import Add from "../../../../../components/Icons/Add"
+import { DesignEditorContext } from "../../../../../contexts/DesignEditor"
 import { nanoid } from "nanoid"
-import { getDefaultTemplate } from "./constants/design-editor"
+import { getDefaultTemplate } from "../../../../../constants/design-editor"
 import { useEditor } from "@layerhub-io/react"
 import { Block } from "baseui/block"
 import { useTimer } from "@layerhub-io/use-timer"
@@ -12,8 +12,8 @@ import TimelineItems from "./TimelineItems"
 import TimeMarker from "./TimeMarker"
 import TimelineControl from "./TimelineControl"
 import TimelineContextMenu from "./TimelineContextMenu"
-import useContextMenuTimelineRequest from "./hooks/useContextMenuTimelineRequest"
-import { findSceneIndexByTime } from "./views/DesignEditor/utils/scenes"
+import useContextMenuTimelineRequest from "../../../../../hooks/useContextMenuTimelineRequest"
+import { findSceneIndexByTime } from "../../../../../views/DesignEditor/utils/scenes"
 
 const Timeline = () => {
 	const { time, setTime, status } = useTimer()

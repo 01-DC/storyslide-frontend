@@ -1,9 +1,9 @@
 import React from "react"
 import { Block } from "baseui/block"
-import useDesignEditorContext from "./hooks/useDesignEditorContext"
+import useDesignEditorContext from "../../../../../hooks/useDesignEditorContext"
 import { nanoid } from "nanoid"
-import useOnClickOutside from "./hooks/useOnClickOutside"
-import { getDefaultTemplate } from "./constants/design-editor"
+import useOnClickOutside from "../../../../../hooks/useOnClickOutside"
+import { getDefaultTemplate } from "../../../../../constants/design-editor"
 import { useEditor, useFrame } from "@layerhub-io/react"
 
 const SceneContextMenu = () => {

@@ -1,4 +1,4 @@
-import { TextOptions } from "./interfaces/editor"
+import { TextOptions } from "../interfaces/editor"
 
 export const propertiesToInclude = ["id", "selectable"]
 

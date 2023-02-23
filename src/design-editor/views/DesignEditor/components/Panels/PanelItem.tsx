@@ -1,7 +1,7 @@
 import React from "react"
-import useAppContext from "./hooks/useAppContext"
+import useAppContext from "../../../../hooks/useAppContext"
 import panelItems from "./panelItems"
-import useIsSidebarOpen from "./hooks/useIsSidebarOpen"
+import useIsSidebarOpen from "../../../../hooks/useIsSidebarOpen"
 import { Block } from "baseui/block"
 
 interface State {
