@@ -3,10 +3,10 @@ import { useEditor } from "@layerhub-io/react"
 import { useStyletron } from "baseui"
 import { Block } from "baseui/block"
 import { Button, SIZE } from "baseui/button"
-import AngleDoubleLeft from "./components/Icons/AngleDoubleLeft"
-import Scrollable from "./components/Scrollable"
-import { graphics } from "./constants/mock-data"
-import useSetIsSidebarOpen from "./hooks/useSetIsSidebarOpen"
+import AngleDoubleLeft from "../../../../../components/Icons/AngleDoubleLeft"
+import Scrollable from "../../../../../components/Scrollable"
+import { graphics } from "../../../../../constants/mock-data"
+import useSetIsSidebarOpen from "../../../../../hooks/useSetIsSidebarOpen"
 
 const Elements = () => {
 	const editor = useEditor()
