@@ -15,10 +15,10 @@
 		"resolveJsonModule": true,
 		"isolatedModules": true,
 		"noEmit": true,
-		"jsx": "react-jsx",
+		"jsx": "preserve",
 		"baseUrl": ".",
 		"paths": {
-			"~/*": ["src/design-editor/*"]
+			"~/*": ["src/*"]
 		}
 	},
 	"include": ["src"],
