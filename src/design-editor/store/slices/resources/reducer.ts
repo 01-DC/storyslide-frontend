@@ -1,17 +1,17 @@
-import { IFontFamily, Resource } from "../../../interfaces/editor"
+import { IFontFamily, Resource } from "~/interfaces/editor"
 import { createReducer } from "@reduxjs/toolkit"
 import { setPixabayResources } from "./actions"
 
 export interface ResourcesState {
-	pixabay: Resource[]
+  pixabay: Resource[]
 }
 
 const initialState: ResourcesState = {
-	pixabay: [],
+  pixabay: [],
 }
 
 export const resourcesReducer = createReducer(initialState, (builder) => {
-	builder.addCase(setPixabayResources, (state, { payload }) => {
-		state.pixabay = payload
-	})
+  builder.addCase(setPixabayResources, (state, { payload }) => {
+    state.pixabay = payload
+  })
 })

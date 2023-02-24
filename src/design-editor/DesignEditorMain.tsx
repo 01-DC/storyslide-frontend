@@ -1,8 +1,8 @@
-import React from "react"
 import Provider from "./Provider"
+import Router from "./Router"
 import Container from "./Container"
-import DesignEditor from "./views/DesignEditor"
 import "./styles/styles.css"
+import DesignEditor from "~/views/DesignEditor"
 
 const DesignEditorMain = () => {
 	return (

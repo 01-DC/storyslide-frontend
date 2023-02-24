@@ -3,7 +3,7 @@ import Navbar2 from "../components/shared/Navbar2"
 
 const EditorLayout = ({ children }) => {
 	return (
-		<div>
+		<div className="">
 			<Navbar2 />
 			{children}
 		</div>

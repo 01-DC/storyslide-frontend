@@ -1,21 +1,21 @@
 import { Block } from "baseui/block"
 import Common from "./Common"
-import React from "react"
 
 const Multiple = () => {
-	return (
-		<Block
-			$style={{
-				flex: 1,
-				display: "flex",
-				alignItems: "center",
-				padding: "0 12px",
-				justifyContent: "space-between",
-			}}>
-			<Block>Multiple</Block>
-			<Common />
-		</Block>
-	)
+  return (
+    <Block
+      $style={{
+        flex: 1,
+        display: "flex",
+        alignItems: "center",
+        padding: "0 12px",
+        justifyContent: "space-between",
+      }}
+    >
+      <Block>Multiple</Block>
+      <Common />
+    </Block>
+  )
 }
 
 export default Multiple
