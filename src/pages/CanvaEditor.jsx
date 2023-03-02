@@ -17,6 +17,7 @@ import { TemplatesSection } from '../components/editor/templates-panel';
 import EditorLayout from "../layouts/EditorLayout"
 import { QrSection, getQR } from '../components/editor/qrSection';
 import {SignatureSection} from "../components/editor/signatureSection"
+import { IconsSection } from '../components/editor/iconSection';
 
 const store = createStore({
 	// this is a demo key just for that project
