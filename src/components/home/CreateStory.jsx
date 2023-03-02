@@ -37,7 +37,7 @@ const CreateStory = () => {
 						Convert to stories
 					</button>
 				</div> */}
-				<div className="bg-ssorange-light p-8 rounded-lg" onClick={() => postStoryData(data, (id) => navigate("/editor", { state: { "id": id } }))}>
+				<div className="bg-ssorange-light p-8 rounded-lg" onClick={() => postStoryData(data, (id,json) => navigate("/editor", { state: { "id": id ,"json":json} }))}>
 					{/* <Link to="/editor" className="flex flex-col items-center" > */}
 					<img src={create} alt="" />
 					<p className="text-ssorange">Create Stories</p>

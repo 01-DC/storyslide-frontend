@@ -67,7 +67,14 @@ const exportData = () => {
 
 
 const CanvaEditor = () => {
-	const location=useLocation();
+	const location = useLocation();
+
+	useEffect(() => {
+		console.log(location.state)
+		if (location.state.json && typeof (location.state.json).width!="undefined" ) {
+			store.loadJSON(location.state.json)
+		}
+	}, [])
 
 	let timeout = null;
 	const requestSave = () => {
