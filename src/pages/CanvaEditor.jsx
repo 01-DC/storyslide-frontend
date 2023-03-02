@@ -15,6 +15,7 @@ import { createStore } from 'polotno/model/store';
 import { DEFAULT_SECTIONS } from 'polotno/side-panel';
 import { TemplatesSection } from '../components/editor/templates-panel';
 import EditorLayout from "../layouts/EditorLayout"
+import { QrSection, getQR } from '../components/editor/qrSection';
 
 const store = createStore({
 	// this is a demo key just for that project
@@ -29,8 +30,23 @@ store.addPage();
 // store.loadJSON(data)
 
 // store.setRole('admin');
+const val = 'https://google.com/';
+getQR(val).then((src) => {
+	store.activePage.addElement({
+		type: 'svg',
+		name: 'qr',
+		x: store.width / 2 - 150,
+		y: store.height / 2 - 150,
+		width: 300,
+		height: 300,
+		src,
+		custom: {
+			value: val,
+		},
+	});
+});
 
-const sections = [TemplatesSection, ...DEFAULT_SECTIONS];
+const sections = [TemplatesSection,QrSection, ...DEFAULT_SECTIONS];
 
 const exportData = () => {
 	const jsonString = `data:text/json;chatset=utf-8,${encodeURIComponent(
