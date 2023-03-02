@@ -4,7 +4,7 @@ import Navbar2 from "../components/shared/Navbar2"
 const EditorLayout = ({ children }) => {
 	return (
 		<div>
-			{/* <Navbar2 /> */}
+			<Navbar2 />
 			{children}
 		</div>
 	)

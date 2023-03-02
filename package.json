@@ -13,7 +13,8 @@
     "qrcode": "1.5.0",
     "react-dom": "^18.2.0",
     "polotno": "1.7.2",
-    "react-router-dom": "^6.8.1"
+    "react-router-dom": "^6.8.1",
+    "signature_pad": "4.0.4"
   },
   "devDependencies": {
     "@types/react": "^18.0.27",

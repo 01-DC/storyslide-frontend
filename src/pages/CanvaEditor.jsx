@@ -16,6 +16,7 @@ import { DEFAULT_SECTIONS } from 'polotno/side-panel';
 import { TemplatesSection } from '../components/editor/templates-panel';
 import EditorLayout from "../layouts/EditorLayout"
 import { QrSection, getQR } from '../components/editor/qrSection';
+import {SignatureSection} from "../components/editor/signatureSection"
 
 const store = createStore({
 	// this is a demo key just for that project
@@ -30,23 +31,23 @@ store.addPage();
 // store.loadJSON(data)
 
 // store.setRole('admin');
-const val = 'https://google.com/';
-getQR(val).then((src) => {
-	store.activePage.addElement({
-		type: 'svg',
-		name: 'qr',
-		x: store.width / 2 - 150,
-		y: store.height / 2 - 150,
-		width: 300,
-		height: 300,
-		src,
-		custom: {
-			value: val,
-		},
-	});
-});
+// const val = 'https://google.com/';
+// getQR(val).then((src) => {
+// 	store.activePage.addElement({
+// 		type: 'svg',
+// 		name: 'qr',
+// 		x: store.width / 2 - 150,
+// 		y: store.height / 2 - 150,
+// 		width: 300,
+// 		height: 300,
+// 		src,
+// 		custom: {
+// 			value: val,
+// 		},
+// 	});
+// });
 
-const sections = [TemplatesSection,QrSection, ...DEFAULT_SECTIONS];
+const sections = [TemplatesSection,...DEFAULT_SECTIONS,QrSection,SignatureSection];
 
 const exportData = () => {
 	const jsonString = `data:text/json;chatset=utf-8,${encodeURIComponent(
@@ -62,7 +63,7 @@ const exportData = () => {
 const CanvaEditor = () => {
 	return (
 		<EditorLayout>
-			<PolotnoContainer style={{ width: "100vw", height: "100vh" }}>
+			<PolotnoContainer style={{ width: "100vw", height: "91.5vh" }}>
 				<SidePanelWrap>
 					<SidePanel
 						store={store}
