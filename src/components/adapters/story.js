@@ -7,14 +7,15 @@ export const postStoryData = (body, func) => {
         url: "http://127.0.0.1:8000/v1" + "/story/add/",
         data: body
     })
-        .then((res) => console.log(res.data.data))
+        .then((res) => func(res.data.data.id))
 }
 
-export const putStoryData = (body,id) => {
+export const putStoryData = (body, id) => {
     axios({
         method: 'put',
+        headers: { 'Content-Type': 'application/json' },
         url: "http://127.0.0.1:8000/v1" + `/story/${id}/update/`,
-        data: JSON.stringify(body)
+        data: body
     })
         .then((res) => console.log(res.data.data))
 

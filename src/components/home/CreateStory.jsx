@@ -7,8 +7,8 @@ import { useNavigate } from "react-router-dom"
 import { useEffect } from 'react'
 
 let data = new FormData();
-data.append("title", "a")
-data.append("json_data", '{ "a": "a" }')
+data.append("title", "")
+data.append("json_data", '{  }')
 
 
 

@@ -66,9 +66,6 @@ const exportData = () => {
 
 
 
-
-
-
 const CanvaEditor = () => {
 	const location=useLocation();
 
