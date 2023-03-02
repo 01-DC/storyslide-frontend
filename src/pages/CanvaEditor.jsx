@@ -16,9 +16,11 @@ import { DEFAULT_SECTIONS } from 'polotno/side-panel';
 import { TemplatesSection } from '../components/editor/templates-panel';
 import EditorLayout from "../layouts/EditorLayout"
 import { QrSection, getQR } from '../components/editor/qrSection';
-import {SignatureSection} from "../components/editor/signatureSection"
+import { SignatureSection } from "../components/editor/signatureSection"
 import { IconsSection } from '../components/editor/iconSection';
 import { LinkSection } from '../components/editor/linkSection';
+import { useLocation } from 'react-router-dom';
+import { putStoryData } from '../components/adapters/story';
 
 const store = createStore({
 	// this is a demo key just for that project
@@ -53,7 +55,7 @@ const sections = [TemplatesSection, ...DEFAULT_SECTIONS, QrSection, SignatureSec
 
 const exportData = () => {
 	const jsonString = `data:text/json;chatset=utf-8,${encodeURIComponent(
-		JSON.stringify(store.toJSON())
+		JSON.stringify(store.toJSON(store.toJSON()))
 	)}`;
 	const link = document.createElement("a");
 	link.href = jsonString;
@@ -62,25 +64,51 @@ const exportData = () => {
 	link.click();
 };
 
-const CanvaEditor = () => {
-	return (
-		<EditorLayout>
-			<PolotnoContainer style={{ width: "100vw", height: "91.5vh" }}>
-				<SidePanelWrap>
-					<SidePanel
-						store={store}
-						sections={sections}
-						defaultSection="custom-templates"
-					/>
-				</SidePanelWrap>
-				<WorkspaceWrap >
 
-					<Toolbar store={store} downloadButtonEnabled />
-					<Workspace store={store} />
-					<ZoomButtons store={store} />
-				</WorkspaceWrap>
-			</PolotnoContainer>
-		</EditorLayout>
+
+
+
+
+const CanvaEditor = () => {
+	const location=useLocation();
+
+	let timeout = null;
+	const requestSave = () => {
+		if (timeout) {
+			return;
+		}
+		timeout = setTimeout(() => {
+			timeout = null;
+			const json = store.toJSON();
+			putStoryData({ "json_data": json }, location.state.id);
+		}, 1000);
+	};
+
+	store.on('change', () => {
+		requestSave();
+	});
+	return (
+		<>
+			{/* <buttons onClick={()=>exportData()}>download json</buttons> */}
+			<EditorLayout>
+				<PolotnoContainer style={{ width: "100vw", height: "92.4vh" }}>
+					<SidePanelWrap>
+						<SidePanel
+							store={store}
+							sections={sections}
+							defaultSection="custom-templates"
+						/>
+					</SidePanelWrap>
+					<WorkspaceWrap >
+
+						<Toolbar store={store} downloadButtonEnabled />
+						<Workspace store={store} />
+						<ZoomButtons store={store} />
+					</WorkspaceWrap>
+				</PolotnoContainer>
+			</EditorLayout>
+		</>
+
 
 
 	)

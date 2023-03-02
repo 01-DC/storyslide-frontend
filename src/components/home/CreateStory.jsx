@@ -1,8 +1,26 @@
 import React from "react"
 import { Link } from "react-router-dom"
 import create from "../../assets/Create_icon.svg"
+import image from "/default_thumbnail.png"
+import { postStoryData } from "../adapters/story"
+import { useNavigate } from "react-router-dom"
+import { useEffect } from 'react'
+
+let data = new FormData();
+data.append("title", "a")
+data.append("json_data", '{ "a": "a" }')
+
+
 
 const CreateStory = () => {
+	useEffect(() => {
+		fetch(image)
+			.then(response => response.blob())
+			.then(blob => {
+				data.append("thumbnail", blob, "thumbnail.png")
+			});
+	}, []);
+	const navigate = useNavigate();
 	return (
 		<div className="">
 			<h1 className="font-bold text-3xl py-2">Create Your Own Story</h1>
@@ -19,11 +37,11 @@ const CreateStory = () => {
 						Convert to stories
 					</button>
 				</div> */}
-				<div className="bg-ssorange-light p-8 rounded-lg">
-					<Link to="/editor" className="flex flex-col items-center">
-						<img src={create} alt="" />
-						<p className="text-ssorange">Create Stories</p>
-					</Link>
+				<div className="bg-ssorange-light p-8 rounded-lg" onClick={() => postStoryData(data, (id) => navigate("/editor", { state: { "id": id } }))}>
+					{/* <Link to="/editor" className="flex flex-col items-center" > */}
+					<img src={create} alt="" />
+					<p className="text-ssorange">Create Stories</p>
+					{/* </Link> */}
 				</div>
 			</div>
 		</div>
