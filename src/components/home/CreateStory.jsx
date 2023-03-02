@@ -11,14 +11,14 @@ const CreateStory = () => {
 			</p>
 
 			<div className="flex gap-4 mt-4 py-4">
-				<div className="flex flex-col bg-ssorange-light rounded-lg p-8 w-96">
+				{/* <div className="flex flex-col bg-ssorange-light rounded-lg p-8 w-96">
 					<input
 						className="border border-gray-300 rounded-lg px-2 py-1 "
 						placeholder="https://flowbite.com/"></input>
 					<button className="bg-ssorange rounded-lg mt-4 py-1 px-2 text-white">
 						Convert to stories
 					</button>
-				</div>
+				</div> */}
 				<div className="bg-ssorange-light p-8 rounded-lg">
 					<Link to="/editor" className="flex flex-col items-center">
 						<img src={create} alt="" />

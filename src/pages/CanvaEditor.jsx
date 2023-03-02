@@ -18,6 +18,7 @@ import EditorLayout from "../layouts/EditorLayout"
 import { QrSection, getQR } from '../components/editor/qrSection';
 import {SignatureSection} from "../components/editor/signatureSection"
 import { IconsSection } from '../components/editor/iconSection';
+import { LinkSection } from '../components/editor/linkSection';
 
 const store = createStore({
 	// this is a demo key just for that project
@@ -48,7 +49,7 @@ store.addPage();
 // 	});
 // });
 
-const sections = [TemplatesSection,...DEFAULT_SECTIONS,QrSection,SignatureSection];
+const sections = [TemplatesSection, ...DEFAULT_SECTIONS, QrSection, SignatureSection, LinkSection];
 
 const exportData = () => {
 	const jsonString = `data:text/json;chatset=utf-8,${encodeURIComponent(

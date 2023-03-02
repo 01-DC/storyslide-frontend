@@ -12,7 +12,7 @@ export const SignatureSection = {
     name: 'signature',
     Tab: (props) => (
         <SectionTab name="Signature" {...props}>
-            <FaSignature />
+            <FaSignature className="mx-10" />
         </SectionTab>
     ),
     // we need observer to update component automatically on any store changes

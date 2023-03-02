@@ -38,7 +38,7 @@ export const TemplatesSection = {
     name: 'custom-templates',
     Tab: (props) => (
         <SectionTab name="Custom templates" {...props}>
-            <MdPhotoLibrary />
+            <MdPhotoLibrary className="mx-10" />
         </SectionTab>
     ),
     // we need observer to update component automatically on any store changes

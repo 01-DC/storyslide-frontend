@@ -29,9 +29,12 @@ export async function getQR(text) {
 export const QrSection = {
     name: 'qr',
     Tab: (props) => (
-        <SectionTab name="Qr" {...props}>
-            <ImQrcode />
+
+        <SectionTab name="Qr" {...props} >
+            <ImQrcode className="mx-10" />
         </SectionTab>
+
+
     ),
     // we need observer to update component automatically on any store changes
     Panel: observer(({ store }) => {
