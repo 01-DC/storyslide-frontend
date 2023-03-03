@@ -20,7 +20,7 @@ import { SignatureSection } from "../components/editor/signatureSection"
 import { IconsSection } from '../components/editor/iconSection';
 import { LinkSection } from '../components/editor/linkSection';
 import { useLocation } from 'react-router-dom';
-import { putStoryData } from '../components/adapters/story';
+import { putStoryJSONData, putStoryData, getStoryData } from '../components/adapters/story';
 
 const store = createStore({
 	// this is a demo key just for that project
@@ -64,14 +64,16 @@ const exportData = () => {
 	link.click();
 };
 
-
+const blobExp = async () => {
+	return await store.toBlob({ pageId: store.pages[0].id });
+}
 
 const CanvaEditor = () => {
 	const location = useLocation();
 
 	useEffect(() => {
-		console.log(location.state)
-		if (location.state.json && typeof (location.state.json).width!="undefined" ) {
+		getStoryData(location.state.id, store)
+		if (location.state.json && typeof (location.state.json).width != "undefined") {
 			store.loadJSON(location.state.json)
 		}
 	}, [])
@@ -85,6 +87,13 @@ const CanvaEditor = () => {
 			timeout = null;
 			const json = store.toJSON();
 			putStoryData({ "json_data": json }, location.state.id);
+			if (store.pages[0] == store.activePage) {
+				let data = new FormData();
+				blobExp().then((res) => { data.append('thumbnail', res, "thumbnail.png"); putStoryData(data, location.state.id) })
+
+				// putStoryData(data, location.state.id);
+			}
+
 		}, 1000);
 	};
 
