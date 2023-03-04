@@ -4,8 +4,10 @@ import right from "../../assets/Pathright.svg"
 import { useEffect, useState } from "react"
 import { getAllStoryData } from "../adapters/story"
 import axios from "axios"
+import { useNavigate } from "react-router-dom"
 
 const YourStories = () => {
+	const navigate = useNavigate();
 	const [stories, setStories] = useState([])
 
 	useEffect(() => {
@@ -32,6 +34,7 @@ const YourStories = () => {
 					<>
 
 						<div
+							onClick={() => navigate("/editor", { state: { "id": story.id } })}
 							key={story.id}
 							className="border border-gray-200 h-44 w-10 p-10 rounded-lg">
 							<img src={story.thumbnail} alt="" />

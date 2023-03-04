@@ -24,9 +24,6 @@ import { useLocation } from 'react-router-dom';
 import { putStoryJSONData, putStoryData, getStoryData, getSlideData, postSlideData, putSlideData } from '../components/adapters/story';
 
 const store = createStore({
-	// this is a demo key just for that project
-	// (!) please don't use it in your projects
-	// to create your own API key please go here: https://polotno.com/cabinet
 	key: 'nFA5H9elEytDyPyvKL7T',
 
 });
