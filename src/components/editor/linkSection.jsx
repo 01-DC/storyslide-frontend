@@ -20,7 +20,7 @@ export const LinkPanel = observer(({ store }) => {
     return (
         <div>
 
-           <p>Add a link:</p>
+            <p>Add a link:</p>
             <InputGroup
                 onChange={(e) => {
                     setVal(e.target.value);
@@ -40,8 +40,8 @@ export const LinkPanel = observer(({ store }) => {
                 <Button
 
                     onClick={async () => {
-                        
 
+                        (store.activePage).set({ custom: { "link": val } })
 
                     }}
                 >
@@ -57,7 +57,7 @@ export const LinkSection = {
     name: 'custom-links',
     Tab: (props) => (
         <SectionTab name="Add Link" {...props}>
-            <MdLink className="mx-10"/>
+            <MdLink className="mx-10" />
         </SectionTab>
     ),
     // we need observer to update component automatically on any store changes

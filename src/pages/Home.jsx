@@ -8,7 +8,7 @@ const Home = () => {
 	return (
 		<HomeLayout>
 			<CreateStory />
-			{/* <YourStories /> */}
+			<YourStories />
 			<Templates />
 		</HomeLayout>
 	)
