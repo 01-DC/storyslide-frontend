@@ -15,18 +15,31 @@ export const LinkPanel = observer(({ store }) => {
 
 
     const [val, setVal] = React.useState('');
+    const [text, setText] = React.useState('');
 
 
     return (
         <div>
 
-            <p>Add a link:</p>
+            <p>URL:</p>
             <InputGroup
                 onChange={(e) => {
                     setVal(e.target.value);
                 }}
                 placeholder="Type the link"
                 value={val}
+                style={{ width: '100%' }}
+            />
+
+            <p
+                className='pt-8'
+            >Link text:</p>
+            <InputGroup
+                onChange={(e) => {
+                    setText(e.target.value);
+                }}
+                placeholder="Type the text"
+                value={text}
                 style={{ width: '100%' }}
             />
             <div
@@ -41,7 +54,7 @@ export const LinkPanel = observer(({ store }) => {
 
                     onClick={async () => {
 
-                        (store.activePage).set({ custom: { "link": val } })
+                        (store.activePage).set({ custom: { "link": val, "text": text } })
 
                     }}
                 >
