@@ -31,6 +31,7 @@ const store = createStore({
 
 });
 
+store.setSize(1080, 1920);
 store.addPage();
 // console.log(data)
 // store.loadJSON(data)
@@ -52,7 +53,8 @@ store.addPage();
 // 	});
 // });
 
-const sections = [TemplatesSection, ...DEFAULT_SECTIONS, QrSection, SignatureSection, LinkSection];
+
+const sections = [TemplatesSection, ...(DEFAULT_SECTIONS.slice(0, -1)), QrSection, SignatureSection, LinkSection];
 
 const exportData = () => {
 	const jsonString = `data:text/json;chatset=utf-8,${encodeURIComponent(
