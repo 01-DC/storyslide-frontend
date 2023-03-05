@@ -1,5 +1,5 @@
-import React from "react";
-import upgrade from "../../assets/Groupupgrade.svg";
+import React from "react"
+import upgrade from "../../assets/Groupupgrade.svg"
 
 const Navbar = () => {
   return (
@@ -12,7 +12,7 @@ const Navbar = () => {
         <div className="rounded-full bg-gray-200 w-8 h-8">P</div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Navbar;
+export default Navbar

@@ -1,10 +1,10 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
-import temp from "../../assets/Temp.svg";
-import saved from "../../assets/Saved.svg";
-import home from "../../assets/Home_icon.svg";
-import stories from "../../assets/Stories_icon.svg";
-import logo from "../../assets/Logo.svg";
+import React from "react"
+import { NavLink } from "react-router-dom"
+import temp from "../../assets/Temp.svg"
+import saved from "../../assets/Saved.svg"
+import home from "../../assets/Home_icon.svg"
+import stories from "../../assets/Stories_icon.svg"
+import logo from "../../assets/Logo.svg"
 
 const SideBar = () => {
   return (
@@ -54,7 +54,7 @@ const SideBar = () => {
         </ul>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default SideBar;
+export default SideBar

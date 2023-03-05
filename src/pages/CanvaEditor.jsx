@@ -1,26 +1,26 @@
-import React from "react";
-import { useEffect } from "react";
-import axios from "axios";
+import React from "react"
+import { useEffect } from "react"
+import axios from "axios"
 
-import "@blueprintjs/icons/lib/css/blueprint-icons.css";
-import "@blueprintjs/core/lib/css/blueprint.css";
-import "@blueprintjs/popover2/lib/css/blueprint-popover2.css";
+import "@blueprintjs/icons/lib/css/blueprint-icons.css"
+import "@blueprintjs/core/lib/css/blueprint.css"
+import "@blueprintjs/popover2/lib/css/blueprint-popover2.css"
 
-import { PolotnoContainer, SidePanelWrap, WorkspaceWrap } from "polotno";
-import { Workspace } from "polotno/canvas/workspace";
-import { SidePanel } from "polotno/side-panel";
-import { Toolbar } from "polotno/toolbar/toolbar";
-import { ZoomButtons } from "polotno/toolbar/zoom-buttons";
-import { createStore } from "polotno/model/store";
+import { PolotnoContainer, SidePanelWrap, WorkspaceWrap } from "polotno"
+import { Workspace } from "polotno/canvas/workspace"
+import { SidePanel } from "polotno/side-panel"
+import { Toolbar } from "polotno/toolbar/toolbar"
+import { ZoomButtons } from "polotno/toolbar/zoom-buttons"
+import { createStore } from "polotno/model/store"
 
-import { DEFAULT_SECTIONS } from "polotno/side-panel";
-import { TemplatesSection } from "../components/editor/templates-panel";
-import EditorLayout from "../layouts/EditorLayout";
-import { QrSection, getQR } from "../components/editor/qrSection";
-import { SignatureSection } from "../components/editor/signatureSection";
-import { IconsSection } from "../components/editor/iconSection";
-import { LinkSection } from "../components/editor/linkSection";
-import { useLocation } from "react-router-dom";
+import { DEFAULT_SECTIONS } from "polotno/side-panel"
+import { TemplatesSection } from "../components/editor/templates-panel"
+import EditorLayout from "../layouts/EditorLayout"
+import { QrSection, getQR } from "../components/editor/qrSection"
+import { SignatureSection } from "../components/editor/signatureSection"
+import { IconsSection } from "../components/editor/iconSection"
+import { LinkSection } from "../components/editor/linkSection"
+import { useLocation } from "react-router-dom"
 import {
   putStoryJSONData,
   putStoryData,
@@ -28,14 +28,14 @@ import {
   getSlideData,
   postSlideData,
   putSlideData,
-} from "../components/adapters/story";
+} from "../components/adapters/story"
 
 const store = createStore({
   key: "nFA5H9elEytDyPyvKL7T",
-});
+})
 
-store.setSize(1080, 1920);
-store.addPage();
+store.setSize(1080, 1920)
+store.addPage()
 // console.log(data)
 // store.loadJSON(data)
 
@@ -62,57 +62,57 @@ const sections = [
   QrSection,
   SignatureSection,
   LinkSection,
-];
+]
 
 const exportData = () => {
   const jsonString = `data:text/json;chatset=utf-8,${encodeURIComponent(
     JSON.stringify(store.toJSON(store.toJSON()))
-  )}`;
-  const link = document.createElement("a");
-  link.href = jsonString;
-  link.download = "data.json";
+  )}`
+  const link = document.createElement("a")
+  link.href = jsonString
+  link.download = "data.json"
 
-  link.click();
-};
+  link.click()
+}
 
 const blobExp = async () => {
-  return await store.toBlob({ pageId: store.pages[0].id });
-};
+  return await store.toBlob({ pageId: store.pages[0].id })
+}
 
 const CanvaEditor = () => {
-  const location = useLocation();
+  const location = useLocation()
 
   useEffect(() => {
-    getStoryData(location.state.id, store);
+    getStoryData(location.state.id, store)
     // if (location.state.json && typeof (location.state.json).width != "undefined") {
     // 	store.loadJSON(location.state.json)
     // }
-  }, []);
+  }, [])
 
-  let timeout = null;
+  let timeout = null
   const requestSave = () => {
     if (timeout) {
-      return;
+      return
     }
     timeout = setTimeout(() => {
-      timeout = null;
-      const json = store.toJSON();
-      putStoryJSONData({ json_data: json }, location.state.id);
+      timeout = null
+      const json = store.toJSON()
+      putStoryJSONData({ json_data: json }, location.state.id)
       if (store.pages[0] == store.activePage) {
-        let data = new FormData();
+        let data = new FormData()
         blobExp().then((res) => {
-          data.append("thumbnail", res, "thumbnail.png");
-          putStoryData(data, location.state.id);
-        });
+          data.append("thumbnail", res, "thumbnail.png")
+          putStoryData(data, location.state.id)
+        })
 
         // putStoryData(data, location.state.id);
       }
-    }, 1000);
-  };
+    }, 1000)
+  }
 
   store.on("change", () => {
-    requestSave();
-  });
+    requestSave()
+  })
   return (
     <>
       {/* <buttons onClick={()=>exportData()}>download json</buttons> */}
@@ -133,7 +133,7 @@ const CanvaEditor = () => {
         </PolotnoContainer>
       </EditorLayout>
     </>
-  );
-};
+  )
+}
 
-export default CanvaEditor;
+export default CanvaEditor

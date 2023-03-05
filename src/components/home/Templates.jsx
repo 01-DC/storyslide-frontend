@@ -1,6 +1,6 @@
-import React from "react";
-import left from "../../assets/Pathleft.svg";
-import right from "../../assets/Pathright.svg";
+import React from "react"
+import left from "../../assets/Pathleft.svg"
+import right from "../../assets/Pathright.svg"
 
 const templates = [
   {
@@ -36,7 +36,7 @@ const templates = [
   {
     name: "",
   },
-];
+]
 
 const Templates = () => {
   return (
@@ -60,7 +60,7 @@ const Templates = () => {
         ))}
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Templates;
+export default Templates

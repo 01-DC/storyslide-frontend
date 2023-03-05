@@ -1,23 +1,23 @@
-import React, { Component } from "react";
-import left from "../../assets/Pathleft.svg";
-import right from "../../assets/Pathright.svg";
-import { useEffect, useState } from "react";
-import { getAllStoryData } from "../adapters/story";
-import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import React, { Component } from "react"
+import left from "../../assets/Pathleft.svg"
+import right from "../../assets/Pathright.svg"
+import { useEffect, useState } from "react"
+import { getAllStoryData } from "../adapters/story"
+import axios from "axios"
+import { useNavigate } from "react-router-dom"
 
 const YourStories = () => {
-  const navigate = useNavigate();
-  const [stories, setStories] = useState([]);
+  const navigate = useNavigate()
+  const [stories, setStories] = useState([])
 
   useEffect(() => {
     axios({
       method: "get",
       url: "http://127.0.0.1:8000/v1" + `/story/all/`,
     }).then((res) => {
-      setStories(res.data.results);
-    });
-  }, []);
+      setStories(res.data.results)
+    })
+  }, [])
   return (
     <div className="">
       <div className="flex justify-between items-center py-4">
@@ -44,7 +44,7 @@ const YourStories = () => {
         ))}
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default YourStories;
+export default YourStories

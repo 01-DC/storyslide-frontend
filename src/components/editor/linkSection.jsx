@@ -1,24 +1,24 @@
-import React from "react";
-import { observer } from "mobx-react-lite";
+import React from "react"
+import { observer } from "mobx-react-lite"
 
-import { SectionTab } from "polotno/side-panel";
-import MdLink from "@meronex/icons/md/MdLink";
-import { Button, InputGroup } from "@blueprintjs/core";
+import { SectionTab } from "polotno/side-panel"
+import MdLink from "@meronex/icons/md/MdLink"
+import { Button, InputGroup } from "@blueprintjs/core"
 
 export async function getQR(text) {
-  return "";
+  return ""
 }
 
 export const LinkPanel = observer(({ store }) => {
-  const [val, setVal] = React.useState("");
-  const [text, setText] = React.useState("");
+  const [val, setVal] = React.useState("")
+  const [text, setText] = React.useState("")
 
   return (
     <div>
       <p>URL:</p>
       <InputGroup
         onChange={(e) => {
-          setVal(e.target.value);
+          setVal(e.target.value)
         }}
         placeholder="Type the link"
         value={val}
@@ -28,7 +28,7 @@ export const LinkPanel = observer(({ store }) => {
       <p className="pt-8">Link text:</p>
       <InputGroup
         onChange={(e) => {
-          setText(e.target.value);
+          setText(e.target.value)
         }}
         placeholder="Type the text"
         value={text}
@@ -43,15 +43,15 @@ export const LinkPanel = observer(({ store }) => {
       >
         <Button
           onClick={async () => {
-            store.activePage.set({ custom: { link: val, text: text } });
+            store.activePage.set({ custom: { link: val, text: text } })
           }}
         >
           Add new Link
         </Button>
       </div>
     </div>
-  );
-});
+  )
+})
 
 // define the new custom section
 export const LinkSection = {
@@ -63,4 +63,4 @@ export const LinkSection = {
   ),
   // we need observer to update component automatically on any store changes
   Panel: LinkPanel,
-};
+}

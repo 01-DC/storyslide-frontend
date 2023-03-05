@@ -1,10 +1,10 @@
-import React from "react";
-import { observer } from "mobx-react-lite";
-import { SectionTab } from "polotno/side-panel";
-import QRCode from "qrcode";
-import * as svg from "polotno/utils/svg";
-import ImQrcode from "@meronex/icons/im/ImQrcode";
-import { Button, InputGroup } from "@blueprintjs/core";
+import React from "react"
+import { observer } from "mobx-react-lite"
+import { SectionTab } from "polotno/side-panel"
+import QRCode from "qrcode"
+import * as svg from "polotno/utils/svg"
+import ImQrcode from "@meronex/icons/im/ImQrcode"
+import { Button, InputGroup } from "@blueprintjs/core"
 
 // create svg image for QR code for input text
 export async function getQR(text) {
@@ -19,10 +19,10 @@ export async function getQR(text) {
         },
       },
       (err, string) => {
-        resolve(svg.svgToURL(string));
+        resolve(svg.svgToURL(string))
       }
-    );
-  });
+    )
+  })
 }
 
 // define the new custom section
@@ -35,17 +35,17 @@ export const QrSection = {
   ),
   // we need observer to update component automatically on any store changes
   Panel: observer(({ store }) => {
-    const [val, setVal] = React.useState("");
+    const [val, setVal] = React.useState("")
 
-    const el = store.selectedElements[0];
-    const isQR = el?.name === "qr";
+    const el = store.selectedElements[0]
+    const isQR = el?.name === "qr"
 
     // if selection is changed we need to update input value
     React.useEffect(() => {
       if (el?.custom?.value) {
-        setVal(el?.custom.value);
+        setVal(el?.custom.value)
       }
-    }, [isQR, el]);
+    }, [isQR, el])
 
     // update image src when we change input data
     React.useEffect(() => {
@@ -56,10 +56,10 @@ export const QrSection = {
             custom: {
               value: val,
             },
-          });
-        });
+          })
+        })
       }
-    }, [el, val, isQR]);
+    }, [el, val, isQR])
 
     return (
       <div>
@@ -67,7 +67,7 @@ export const QrSection = {
         {!isQR && <p>Create new QR code:</p>}
         <InputGroup
           onChange={(e) => {
-            setVal(e.target.value);
+            setVal(e.target.value)
           }}
           placeholder="Type qr code content"
           value={val}
@@ -85,8 +85,8 @@ export const QrSection = {
               display: isQR ? "" : "none",
             }}
             onClick={() => {
-              store.selectElements([]);
-              setVal("");
+              store.selectElements([])
+              setVal("")
             }}
           >
             Cancel
@@ -96,7 +96,7 @@ export const QrSection = {
               display: isQR ? "none" : "",
             }}
             onClick={async () => {
-              const src = await getQR(val);
+              const src = await getQR(val)
 
               store.activePage.addElement({
                 type: "svg",
@@ -109,13 +109,13 @@ export const QrSection = {
                 custom: {
                   value: val,
                 },
-              });
+              })
             }}
           >
             Add new QR code
           </Button>
         </div>
       </div>
-    );
+    )
   }),
-};
+}

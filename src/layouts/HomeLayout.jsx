@@ -1,6 +1,6 @@
-import React from "react";
-import Navbar from "../components/shared/Navbar";
-import SideBar from "../components/shared/SideBar";
+import React from "react"
+import Navbar from "../components/shared/Navbar"
+import SideBar from "../components/shared/SideBar"
 
 const HomeLayout = ({ children }) => {
   return (
@@ -13,7 +13,7 @@ const HomeLayout = ({ children }) => {
         <div className="p-6">{children}</div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default HomeLayout;
+export default HomeLayout
