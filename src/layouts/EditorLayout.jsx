@@ -1,13 +1,13 @@
-import React from "react"
-import Navbar2 from "../components/shared/Navbar2"
+import React from "react";
+import Navbar2 from "../components/shared/Navbar2";
 
 const EditorLayout = ({ children }) => {
-	return (
-		<div>
-			<Navbar2 />
-			{children}
-		</div>
-	)
-}
+  return (
+    <div>
+      <Navbar2 />
+      {children}
+    </div>
+  );
+};
 
-export default EditorLayout
+export default EditorLayout;
