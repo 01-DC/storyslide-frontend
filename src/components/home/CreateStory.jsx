@@ -18,7 +18,9 @@ const CreateStory = () => {
         data.append("thumbnail", blob, "thumbnail.png")
       })
   }, [])
+
   const navigate = useNavigate()
+
   return (
     <div className="">
       <h1 className="font-bold text-3xl py-2">Create Your Own Story</h1>
@@ -36,7 +38,7 @@ const CreateStory = () => {
 					</button>
 				</div> */}
         <div
-          className="bg-ssorange-light p-8 rounded-lg"
+          className="bg-ssorange-light p-8 rounded-lg cursor-pointer"
           onClick={() =>
             postStoryData(data, (id, json) =>
               navigate("/editor", { state: { id: id } })
