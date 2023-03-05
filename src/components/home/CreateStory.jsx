@@ -1,8 +1,26 @@
 import React from "react"
 import { Link } from "react-router-dom"
 import create from "../../assets/Create_icon.svg"
+import image from "/default_thumbnail.png"
+import { postStoryData } from "../adapters/story"
+import { useNavigate } from "react-router-dom"
+import { useEffect } from 'react'
+
+let data = new FormData();
+data.append("title", "")
+data.append("json_data", '{  }')
+
+
 
 const CreateStory = () => {
+	useEffect(() => {
+		fetch(image)
+			.then(response => response.blob())
+			.then(blob => {
+				data.append("thumbnail", blob, "thumbnail.png")
+			});
+	}, []);
+	const navigate = useNavigate();
 	return (
 		<div className="">
 			<h1 className="font-bold text-3xl py-2">Create Your Own Story</h1>
@@ -11,11 +29,19 @@ const CreateStory = () => {
 			</p>
 
 			<div className="flex gap-4 mt-4 py-4">
-				<div className="bg-ssorange-light p-8 rounded-lg">
-					<Link to="/editor" className="flex flex-col items-center">
-						<img src={create} alt="" />
-						<p className="text-ssorange">Create Stories</p>
-					</Link>
+				{/* <div className="flex flex-col bg-ssorange-light rounded-lg p-8 w-96">
+					<input
+						className="border border-gray-300 rounded-lg px-2 py-1 "
+						placeholder="https://flowbite.com/"></input>
+					<button className="bg-ssorange rounded-lg mt-4 py-1 px-2 text-white">
+						Convert to stories
+					</button>
+				</div> */}
+				<div className="bg-ssorange-light p-8 rounded-lg" onClick={() => postStoryData(data, (id,json) => navigate("/editor", { state: { "id": id } }))}>
+					{/* <Link to="/editor" className="flex flex-col items-center" > */}
+					<img src={create} alt="" />
+					<p className="text-ssorange">Create Stories</p>
+					{/* </Link> */}
 				</div>
 			</div>
 		</div>
