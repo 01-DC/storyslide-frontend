@@ -4,6 +4,7 @@ import { useEffect } from "react"
 import eye from "../../assets/Groupeye.svg"
 
 const Carousel = ({ data }) => {
+  console.log("data", data)
   const [flowDirection, setFlowDirection] = useState(true)
   const [centerId, setCenterId] = useState(0)
   const [leftId, setLeftId] = useState(data.length - 1)
@@ -111,9 +112,8 @@ const Carousel = ({ data }) => {
       <div className="flex items-center justify-center pt-8 px-8 gap-4">
         {data.map((d, i) => (
           <div
-            className={`h-1 w-full rounded-md ${
-              i <= centerId ? "bg-white" : "bg-gray-800"
-            }`}
+            className={`h-1 w-full rounded-md ${i <= centerId ? "bg-white" : "bg-gray-800"
+              }`}
           ></div>
         ))}
       </div>

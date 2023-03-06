@@ -74,3 +74,12 @@ export const getAllStoryData = (func) => {
     console.log(res.data.results)
   })
 }
+
+export const getStorySlugData = (slug, func) => {
+  axios({
+    method: "get",
+    url: "http://127.0.0.1:8000/v1" + `/story/slug/${slug}/get/`,
+  }).then((res) => {
+    func(res.data)
+  })
+}
