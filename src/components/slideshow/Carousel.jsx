@@ -8,9 +8,6 @@ const Carousel = ({ data }) => {
   const [centerId, setCenterId] = useState(0)
   const [leftId, setLeftId] = useState(data.length - 1)
   const [rightId, setRightId] = useState(1)
-  const [cb1, setCB1] = useState(true)
-  const [cb2, setCB2] = useState(false)
-  const [cb3, setCB3] = useState(false)
 
   const nextBtn = () => {
     if (leftId === data.length - 1) {
@@ -27,20 +24,6 @@ const Carousel = ({ data }) => {
       setRightId(0)
     } else {
       setRightId(rightId + 1)
-    }
-
-    if (cb1) {
-      setCB1(false)
-      setCB2(true)
-      setCB3(false)
-    } else if (cb2) {
-      setCB1(false)
-      setCB2(false)
-      setCB3(true)
-    } else {
-      setCB1(true)
-      setCB2(false)
-      setCB3(false)
     }
 
     setFlowDirection(true)
@@ -62,20 +45,6 @@ const Carousel = ({ data }) => {
       setRightId(data.length - 1)
     } else {
       setRightId(rightId - 1)
-    }
-
-    if (cb1) {
-      setCB1(false)
-      setCB2(false)
-      setCB3(true)
-    } else if (cb2) {
-      setCB1(true)
-      setCB2(false)
-      setCB3(false)
-    } else {
-      setCB1(false)
-      setCB2(true)
-      setCB3(false)
     }
   }
 
@@ -100,7 +69,7 @@ const Carousel = ({ data }) => {
       },
     },
     left: {
-      x: "-300px",
+      x: "-20vw",
       opacity: 1,
       filter: "brightness(40%)",
       scale: 1,
@@ -114,7 +83,7 @@ const Carousel = ({ data }) => {
     },
     right: {
       backgroundImage: "url(" + data[rightId] + ")",
-      x: "300px",
+      x: "20vw",
       opacity: 1,
       filter: "brightness(40%)",
       scale: 1,
@@ -126,18 +95,17 @@ const Carousel = ({ data }) => {
       },
     },
     rightHidden: {
-      x: "400px",
+      x: "100vw",
       scale: 0,
       opacity: 0,
     },
     leftHidden: {
-      x: "-400px",
+      x: "-100vw",
       scale: 0,
       opacity: 0,
     },
   }
 
-  const topBar = []
   return (
     <div className="h-screen overflow-hidden">
       <div className="flex items-center justify-center pt-8 px-8 gap-4">
@@ -157,8 +125,8 @@ const Carousel = ({ data }) => {
         </div>
       </div>
 
-      <motion.div className="grid place-content-center rounded-2xl h-screen">
-        <motion.div className="relative h-96 aspect-[9/16]">
+      <motion.div className="grid place-content-center rounded-2xl h-full">
+        <motion.div className="relative h-frame aspect-[9/16]">
           <AnimatePresence initial={false}>
             <motion.div
               key={leftId}
@@ -166,14 +134,14 @@ const Carousel = ({ data }) => {
               initial={flowDirection ? "center" : "leftHidden"}
               animate="left"
               exit={"leftHidden"}
-              className="absolute h-96 aspect-[9/16] bg-center bg-cover rounded-2xl bg-no-repeat"
+              className="absolute h-frame aspect-[9/16] bg-center bg-cover rounded-2xl bg-no-repeat"
             ></motion.div>
             <motion.div
               variants={variants}
               key={centerId}
               initial={flowDirection ? "right" : "left"}
               animate="center"
-              className="absolute h-96 aspect-[9/16] bg-center bg-cover rounded-2xl bg-no-repeat"
+              className="absolute h-frame aspect-[9/16] bg-center bg-cover rounded-2xl bg-no-repeat"
             >
               <div className="flex justify-between z-10 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[140%]">
                 <motion.button
@@ -238,7 +206,7 @@ const Carousel = ({ data }) => {
               initial={flowDirection ? "rightHidden" : "center"}
               animate="right"
               exit={"rightHidden"}
-              className="absolute h-96 aspect-[9/16] bg-center bg-cover rounded-2xl bg-no-repeat"
+              className="absolute h-frame aspect-[9/16] bg-center bg-cover rounded-2xl bg-no-repeat"
             ></motion.div>
           </AnimatePresence>
         </motion.div>

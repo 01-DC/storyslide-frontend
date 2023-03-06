@@ -9,6 +9,9 @@ module.exports = {
         "cta-brown": "#1E1E1EB2",
         "cta-brown-tran": "#1E1E1E4D",
       },
+      height: {
+        frame: "50vh",
+      },
     },
   },
   plugins: [],
