@@ -6,6 +6,8 @@ module.exports = {
       colors: {
         ssorange: "#F94B35",
         "ssorange-light": "#FEF4F3",
+        "cta-brown": "#1E1E1EB2",
+        "cta-brown-tran": "#1E1E1E4D",
       },
     },
   },

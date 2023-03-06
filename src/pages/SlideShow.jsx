@@ -15,7 +15,7 @@ const SlideShow = () => {
   const { slug } = useParams()
 
   return (
-    <div className="bg-red-300">
+    <div className="bg-gradient-to-r from-cta-brown to-cta-brown-tran backdrop-blur-3xl">
       <Carousel data={carouselData} />
     </div>
   )
