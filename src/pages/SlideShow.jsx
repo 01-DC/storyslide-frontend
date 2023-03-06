@@ -32,11 +32,15 @@ const getImage = async (Json) => {
 
 const SlideShow = () => {
   const { slug } = useParams();
+  const [view, setView] = useState(0);
+  const [title, setTitle] = useState("")
   useEffect(() => {
     axios({
       method: "get",
       url: "http://127.0.0.1:8000/v1" + `/story/slug/${slug}/get/`,
     }).then((res) => {
+      setView(res.data.view_count)
+      setTitle(res.data.title)
       getImage(res.data.json_data);
     })
 
@@ -46,7 +50,7 @@ const SlideShow = () => {
   return (
     <div className="bg-gradient-to-r from-cta-brown to-cta-brown-tran backdrop-blur-3xl">
       <Workspace store={store} />
-      <Carousel data={carouselData} />
+      <Carousel data={carouselData} title={title} view={view}/>
 
     </div>
   )

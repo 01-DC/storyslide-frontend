@@ -3,7 +3,7 @@ import { AnimatePresence, motion } from "framer-motion"
 import { useEffect } from "react"
 import eye from "../../assets/Groupeye.svg"
 
-const Carousel = ({ data }) => {
+const Carousel = ({ data, view, title }) => {
   console.log("data", data)
   const [flowDirection, setFlowDirection] = useState(true)
   const [centerId, setCenterId] = useState(0)
@@ -119,9 +119,9 @@ const Carousel = ({ data }) => {
       </div>
 
       <div className="flex justify-between px-8 mt-4">
-        <h1 className="font-bold text-3xl text-white">Marketing Pitch</h1>
+        <h1 className="font-bold text-3xl text-white">{title}</h1>
         <div className="text-white flex items-center gap-2">
-          <img src={eye} /> 32
+          <img src={eye} /> {view}
         </div>
       </div>
 
