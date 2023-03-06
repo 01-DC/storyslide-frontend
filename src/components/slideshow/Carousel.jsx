@@ -95,12 +95,12 @@ const Carousel = ({ data }) => {
       },
     },
     rightHidden: {
-      x: "100vw",
+      x: "40vw",
       scale: 0,
       opacity: 0,
     },
     leftHidden: {
-      x: "-100vw",
+      x: "-40vw",
       scale: 0,
       opacity: 0,
     },
