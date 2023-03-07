@@ -51,10 +51,10 @@ export const putStoryData = async (body, id) => {
   // }).then((res) => console.log(res.data.data))
 }
 
-export const getStoryData = async (id, store) => {
+export const getStoryData = async (id) => {
   try {
     const res = await axios.get(`/story/${id}/get/`)
-    if (res.data.json_data) store.loadJSON(res.data.json_data)
+    return res.data
   } catch (error) {
     console.log(error)
   }

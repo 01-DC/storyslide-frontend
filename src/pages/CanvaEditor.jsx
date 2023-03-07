@@ -84,18 +84,31 @@ const CanvaEditor = () => {
   const { id } = useParams()
   const [slugVal, setSlugVal] = useState("")
 
+  const loadStoryData = async () => {
+    try {
+      const data = await getStoryData(id)
+      if (data.json_data) {
+        store.loadJSON(data.json_data)
+        setSlugVal(data.slug)
+      }
+    } catch (error) {
+      store.loadJSON()
+    }
+  }
+
   useEffect(() => {
-    axios({
-      method: "get",
-      url: "http://127.0.0.1:8000/v1" + `/story/${id}/get/`,
-    })
-      .then((res) => {
-        if (res.data.json_data) {
-          store.loadJSON(res.data.json_data)
-          setSlugVal(res.data.slug)
-        }
-      })
-      .catch((err) => store.loadJSON())
+    loadStoryData()
+    // axios({
+    //   method: "get",
+    //   url: "http://127.0.0.1:8000/v1" + `/story/${id}/get/`,
+    // })
+    //   .then((res) => {
+    //     if (res.data.json_data) {
+    //       store.loadJSON(res.data.json_data)
+    //       setSlugVal(res.data.slug)
+    //     }
+    //   })
+    //   .catch((err) => store.loadJSON())
     // if (location.state.json && typeof (location.state.json).width != "undefined") {
     // 	store.loadJSON(location.state.json)
     // }
