@@ -4,7 +4,7 @@ import right from "../../assets/Pathright.svg"
 import { useEffect, useState } from "react"
 import { getAllStoryData } from "../adapters/story"
 import axios from "axios"
-import { useNavigate } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 
 const YourStories = () => {
   const navigate = useNavigate()
@@ -41,7 +41,12 @@ const YourStories = () => {
           >
             <img src={right} alt="" />
           </button>
-          <p className="text-ssorange ml-6">{"View All  >"}</p>
+          <Link
+            to="/saved"
+            className="text-ssorange ml-6 hover:bg-gray-200 p-3 rounded-lg"
+          >
+            {"View All  >"}
+          </Link>
         </div>
       </div>
 

@@ -36,9 +36,7 @@ const SideBar = () => {
           <li>
             <NavLink
               onClick={() =>
-                postStoryData(data, (id, json) =>
-                  navigate("/editor", { state: { id: id } })
-                )
+                postStoryData(data, (id, json) => navigate(`/editor/${id}`))
               }
               className="bg-ssorange rounded-lg p-2 text-white flex items-center gap-2"
             >

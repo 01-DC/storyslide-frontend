@@ -1,4 +1,5 @@
-import React, { useEffect, useRef } from "react"
+import React, { useRef } from "react"
+import { Link } from "react-router-dom"
 import left from "../../assets/Pathleft.svg"
 import right from "../../assets/Pathright.svg"
 import page from "../../templates/page1.json"
@@ -48,7 +49,12 @@ const Templates = () => {
           >
             <img src={right} alt="" />
           </button>
-          <p className="text-ssorange ml-6">{"View All  >"}</p>
+          <Link
+            to="/templates"
+            className="text-ssorange ml-6 hover:bg-gray-200 p-3 rounded-lg"
+          >
+            {"View All  >"}
+          </Link>
         </div>
       </div>
       <div
