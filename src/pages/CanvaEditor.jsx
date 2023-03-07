@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import { useEffect } from "react"
 import axios from "axios"
 
@@ -81,16 +81,21 @@ const blobExp = async () => {
 
 const CanvaEditor = () => {
   // const location = useLocation()
-  const { id } = useParams();
+  const { id } = useParams()
+  const [slugVal, setSlugVal] = useState("")
+
   useEffect(() => {
     axios({
       method: "get",
       url: "http://127.0.0.1:8000/v1" + `/story/${id}/get/`,
-    }).then((res) => {
-      if (res.data.json_data) {
-        store.loadJSON(res.data.json_data)
-      }
-    }).catch((err) => store.loadJSON())
+    })
+      .then((res) => {
+        if (res.data.json_data) {
+          store.loadJSON(res.data.json_data)
+          setSlugVal(res.data.slug)
+        }
+      })
+      .catch((err) => store.loadJSON())
     // if (location.state.json && typeof (location.state.json).width != "undefined") {
     // 	store.loadJSON(location.state.json)
     // }
@@ -122,7 +127,7 @@ const CanvaEditor = () => {
   })
 
   return (
-    <EditorLayout id={id}>
+    <EditorLayout id={id} slugVal={slugVal}>
       <PolotnoContainer style={{ width: "100vw", height: "92.4vh" }}>
         <SidePanelWrap>
           <SidePanel

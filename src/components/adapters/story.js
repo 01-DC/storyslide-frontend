@@ -22,7 +22,7 @@ export const putStoryJSONData = async (body, id) => {
     const res = await axios.put(`/story/${id}/update/`, body, {
       headers: { "Content-Type": "application/json" },
     })
-    console.log(res.data.data)
+    // console.log(res.data.data)
   } catch (error) {
     console.log(error)
   }
@@ -39,7 +39,7 @@ export const putStoryData = async (body, id) => {
     const res = await axios.put(`/story/${id}/update/`, body, {
       headers: { "Content-Type": "multipart/form-data" },
     })
-    console.log(res.data.data)
+    // console.log(res.data.data)
   } catch (error) {
     console.log(error)
   }
