@@ -11,11 +11,15 @@ const store = createStore({
 })
 
 const carouselData = []
+const links = []
 
 const getImage = async (Json) => {
   try {
     const loadedJson = await store.loadJSON(Json)
     for (let x of Json.pages) {
+      if (x.hasOwnProperty("custom")) links.push(x.custom)
+      else links.push({ link: "", text: "" })
+
       let url = await store.toDataURL({ pageId: x.id })
       carouselData.push(url)
       // console.log(url)
@@ -41,6 +45,7 @@ const SlideShow = () => {
     setLoading(false)
     console.log("Loading State False")
     console.log(data)
+    console.log(links)
   }
 
   useEffect(() => {
@@ -61,12 +66,12 @@ const SlideShow = () => {
   }, [])
 
   return (
-    <div className="bg-gradient-to-r from-cta-brown to-cta-brown-tran backdrop-blur-3xl">
+    <div className="bg-gradient-to-r from-cta-brown to-cta-brown-tran">
       <Workspace store={store} />
       {loading ? (
         <div></div>
       ) : (
-        <Carousel data={carouselData} title={title} view={view} />
+        <Carousel data={carouselData} title={title} view={view} links={links} />
       )}
     </div>
   )

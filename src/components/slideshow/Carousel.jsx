@@ -2,8 +2,9 @@ import React, { useState } from "react"
 import { AnimatePresence, motion } from "framer-motion"
 import { useEffect } from "react"
 import eye from "../../assets/Groupeye.svg"
+import linkIcon from "../../assets/attachment-link.2link.svg"
 
-const Carousel = ({ data, view, title }) => {
+const Carousel = ({ data, view, title, links }) => {
   // console.log("data", data)
   const [flowDirection, setFlowDirection] = useState(true)
   const [centerId, setCenterId] = useState(0)
@@ -144,6 +145,14 @@ const Carousel = ({ data, view, title }) => {
               animate="center"
               className="absolute h-frame aspect-[9/16] bg-center bg-cover rounded-2xl bg-no-repeat"
             >
+              {links[centerId]?.link && links[centerId]?.text && (
+                <div className="absolute left-1/2 -translate-x-1/2 -translate-y-[130%] text-black bg-white py-1 px-2 rounded-lg flex items-center gap-2 shadow-lg">
+                  <img src={linkIcon} />
+                  <a href={links[centerId]?.link} target="_blank">
+                    {links[centerId]?.text}
+                  </a>
+                </div>
+              )}
               <div className="flex justify-between z-10 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[140%]">
                 <motion.button
                   initial={{ opacity: 0, scale: 0 }}
