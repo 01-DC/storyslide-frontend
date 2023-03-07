@@ -113,26 +113,24 @@ const CanvaEditor = () => {
   store.on("change", () => {
     requestSave()
   })
+
   return (
-    <>
-      {/* <buttons onClick={()=>exportData()}>download json</buttons> */}
-      <EditorLayout>
-        <PolotnoContainer style={{ width: "100vw", height: "92.4vh" }}>
-          <SidePanelWrap>
-            <SidePanel
-              store={store}
-              sections={sections}
-              defaultSection="custom-templates"
-            />
-          </SidePanelWrap>
-          <WorkspaceWrap>
-            <Toolbar store={store} downloadButtonEnabled />
-            <Workspace store={store} />
-            <ZoomButtons store={store} />
-          </WorkspaceWrap>
-        </PolotnoContainer>
-      </EditorLayout>
-    </>
+    <EditorLayout>
+      <PolotnoContainer style={{ width: "100vw", height: "92.4vh" }}>
+        <SidePanelWrap>
+          <SidePanel
+            store={store}
+            sections={sections}
+            defaultSection="custom-templates"
+          />
+        </SidePanelWrap>
+        <WorkspaceWrap>
+          <Toolbar store={store} downloadButtonEnabled />
+          <Workspace store={store} />
+          <ZoomButtons store={store} />
+        </WorkspaceWrap>
+      </PolotnoContainer>
+    </EditorLayout>
   )
 }
 
