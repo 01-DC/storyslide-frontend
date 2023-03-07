@@ -81,7 +81,7 @@ const blobExp = async () => {
 
 const CanvaEditor = () => {
   // const location = useLocation()
-  const {id}=useParams();
+  const { id } = useParams();
   useEffect(() => {
     axios({
       method: "get",
@@ -123,7 +123,7 @@ const CanvaEditor = () => {
   return (
     <>
       {/* <buttons onClick={()=>exportData()}>download json</buttons> */}
-      <EditorLayout>
+      <EditorLayout id={id}>
         <PolotnoContainer style={{ width: "100vw", height: "92.4vh" }}>
           <SidePanelWrap>
             <SidePanel
