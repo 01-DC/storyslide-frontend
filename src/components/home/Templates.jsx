@@ -1,4 +1,4 @@
-import React, { useEffect } from "react"
+import React, { useEffect, useRef } from "react"
 import left from "../../assets/Pathleft.svg"
 import right from "../../assets/Pathright.svg"
 import page from "../../templates/page1.json"
@@ -25,17 +25,36 @@ const postFn = async (template) => {
 }
 
 const Templates = () => {
+  const scrollDivRef = useRef()
+
+  const slide = (shift) => {
+    scrollDivRef.current.scrollLeft += shift
+  }
+
   return (
     <div className="">
       <div className="flex justify-between items-center py-4 ">
         <h1 className="font-bold text-3xl">Templates</h1>
-        <div className="flex gap-4">
-          <img src={left} alt="" />
-          <img src={right} alt="" />
+        <div className="flex items-center gap-4">
+          <button
+            className="p-3 hover:bg-gray-200 rounded-full"
+            onClick={() => slide(-80)}
+          >
+            <img src={left} alt="" />
+          </button>
+          <button
+            className="p-3 hover:bg-gray-200 rounded-full"
+            onClick={() => slide(80)}
+          >
+            <img src={right} alt="" />
+          </button>
           <p className="text-ssorange ml-6">{"View All  >"}</p>
         </div>
       </div>
-      <div className="flex gap-4 items-center my-4 w-full overflow-auto">
+      <div
+        className="flex gap-4 items-center my-4 w-full overflow-auto"
+        ref={scrollDivRef}
+      >
         {page.items.map((template, index) => (
           <div
             style={{
@@ -45,7 +64,7 @@ const Templates = () => {
               backgroundRepeat: "no-repeat",
             }}
             key={index}
-            className="border border-gray-200 h-64 w-full p-10 rounded-lg"
+            className="border border-gray-200 h-64 w-auto p-16 rounded-lg object-fill"
             onClick={() => postFn(template)}
           ></div>
         ))}
