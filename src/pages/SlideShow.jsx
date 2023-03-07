@@ -40,6 +40,7 @@ const SlideShow = () => {
     await getImage(data.json_data)
     setLoading(false)
     console.log("Loading State False")
+    console.log(data)
   }
 
   useEffect(() => {
@@ -61,13 +62,11 @@ const SlideShow = () => {
 
   return (
     <div className="bg-gradient-to-r from-cta-brown to-cta-brown-tran backdrop-blur-3xl">
+      <Workspace store={store} />
       {loading ? (
         <div></div>
       ) : (
-        <>
-          <Workspace store={store} />
-          <Carousel data={carouselData} title={title} view={view} />
-        </>
+        <Carousel data={carouselData} title={title} view={view} />
       )}
     </div>
   )

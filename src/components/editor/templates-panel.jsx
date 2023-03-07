@@ -10,7 +10,7 @@ import { ImagesGrid } from "polotno/side-panel/images-grid"
 export const TemplatesPanel = observer(({ store }) => {
   // load data
   const { data, isLoading } = useInfiniteAPI({
-    getAPI: ({ page }) => `/templates/page${page}.json`,
+    getAPI: ({ page }) => `src/templates/page${page}.json`,
   })
   console.log(data)
   return (
@@ -18,11 +18,11 @@ export const TemplatesPanel = observer(({ store }) => {
       <ImagesGrid
         shadowEnabled={false}
         images={data?.map((data) => data.items).flat()}
-        getPreview={(item) => `/templates/${item.preview}`}
+        getPreview={(item) => `src/templates/${item.preview}`}
         isLoading={isLoading}
         onSelect={async (item) => {
           // download selected json
-          const req = await fetch(`/templates/${item.json}`)
+          const req = await fetch(`src/templates/${item.json}`)
           const json = await req.json()
           // just inject it into store
           store.loadJSON(json)

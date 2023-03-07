@@ -2,7 +2,7 @@ import axios from "axios"
 
 export const postStoryData = async (body, func) => {
   try {
-    const res = await axios.post("/story/add", body, {
+    const res = await axios.post("/story/add/", body, {
       headers: { "Content-Type": "multipart/form-data" },
     })
     func(res.data.data.id, res.data.data.json_data)

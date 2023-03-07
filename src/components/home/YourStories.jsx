@@ -33,21 +33,19 @@ const YourStories = () => {
 
       <div className="flex gap-4 items-center my-4 w-full overflow-auto">
         {stories.map((story, index) => (
-          <>
-            <div
-              style={{
-                backgroundImage: `url(${story.thumbnail})`,
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-                backgroundRepeat: "no-repeat",
-              }}
-              onClick={() =>
-                (window.location.href = `${window.location.href}editor/${story.id}`)
-              }
-              key={story.id}
-              className="border border-gray-200 h-64 w-auto p-16 rounded-lg object-fill"
-            ></div>
-          </>
+          <div
+            style={{
+              backgroundImage: `url(${story.thumbnail})`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              backgroundRepeat: "no-repeat",
+            }}
+            onClick={() =>
+              (window.location.href = `${window.location.href}editor/${story.id}`)
+            }
+            key={story.id}
+            className="border border-gray-200 h-64 w-auto p-16 rounded-lg object-fill"
+          ></div>
         ))}
       </div>
     </div>
