@@ -20,7 +20,7 @@ import { QrSection, getQR } from "../components/editor/qrSection"
 import { SignatureSection } from "../components/editor/signatureSection"
 import { IconsSection } from "../components/editor/iconSection"
 import { LinkSection } from "../components/editor/linkSection"
-import { useLocation } from "react-router-dom"
+import { useLocation, useParams } from "react-router-dom"
 import {
   putStoryJSONData,
   putStoryData,
@@ -80,10 +80,17 @@ const blobExp = async () => {
 }
 
 const CanvaEditor = () => {
-  const location = useLocation()
-
+  // const location = useLocation()
+  const { id } = useParams();
   useEffect(() => {
-    getStoryData(location.state.id, store)
+    axios({
+      method: "get",
+      url: "http://127.0.0.1:8000/v1" + `/story/${id}/get/`,
+    }).then((res) => {
+      if (res.data.json_data) {
+        store.loadJSON(res.data.json_data)
+      }
+    }).catch((err) => store.loadJSON())
     // if (location.state.json && typeof (location.state.json).width != "undefined") {
     // 	store.loadJSON(location.state.json)
     // }
@@ -97,12 +104,12 @@ const CanvaEditor = () => {
     timeout = setTimeout(() => {
       timeout = null
       const json = store.toJSON()
-      putStoryJSONData({ json_data: json }, location.state.id)
+      putStoryJSONData({ json_data: json }, id)
       if (store.pages[0] == store.activePage) {
         let data = new FormData()
         blobExp().then((res) => {
           data.append("thumbnail", res, "thumbnail.png")
-          putStoryData(data, location.state.id)
+          putStoryData(data, id)
         })
 
         // putStoryData(data, location.state.id);
@@ -115,7 +122,7 @@ const CanvaEditor = () => {
   })
 
   return (
-    <EditorLayout>
+    <EditorLayout id={id}>
       <PolotnoContainer style={{ width: "100vw", height: "92.4vh" }}>
         <SidePanelWrap>
           <SidePanel

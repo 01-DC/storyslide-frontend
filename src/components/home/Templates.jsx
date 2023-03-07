@@ -1,44 +1,31 @@
-import React from "react"
+import React, { useEffect } from "react"
 import left from "../../assets/Pathleft.svg"
 import right from "../../assets/Pathright.svg"
+import page from "../../../public/templates/page1.json"
+import { postStoryData } from "../adapters/story"
 
-const templates = [
-  {
-    name: "",
-  },
-  {
-    name: "",
-  },
-  {
-    name: "",
-  },
-  {
-    name: "",
-  },
-  {
-    name: "",
-  },
-  {
-    name: "",
-  },
-  {
-    name: "",
-  },
-  {
-    name: "",
-  },
-  {
-    name: "",
-  },
-  {
-    name: "",
-  },
-  {
-    name: "",
-  },
-]
+const postFn = async (template) => {
+  let data = new FormData()
+  data.append("title", "")
+  await fetch(`/templates/${template.json}`)
+    .then(response => response.json())
+    .then(jsonData => {
+      data.append('json_data', JSON.stringify(jsonData));
+    })
+  await fetch(`/templates/${template.preview}`)
+    .then((response) => response.blob())
+    .then((blob) => {
+      data.append("thumbnail", blob, "thumbnail.png")
+    })
+
+  postStoryData(data, (id) =>
+    window.location.href = `${window.location.href}editor/${id}`
+  )
+}
+
 
 const Templates = () => {
+
   return (
     <div className="">
       <div className="flex justify-between items-center py-4 ">
@@ -50,12 +37,18 @@ const Templates = () => {
         </div>
       </div>
       <div className="flex gap-4 items-center my-4 w-full overflow-auto">
-        {templates.map((template, index) => (
+        {(page.items).map((template, index) => (
           <div
+            style={{
+              backgroundImage: `url(/templates/${template.preview})`, backgroundSize: "cover",
+              backgroundPosition: "center",
+              backgroundRepeat: "no-repeat",
+            }}
             key={index}
-            className="border border-gray-200 h-44 p-10 rounded-lg w-6"
+            className="border border-gray-200 h-64 w-full p-10 rounded-lg"
+            onClick={()=>postFn(template)}
           >
-            {template.name}
+
           </div>
         ))}
       </div>
@@ -63,4 +56,4 @@ const Templates = () => {
   )
 }
 
-export default Templates
+export default Templates;

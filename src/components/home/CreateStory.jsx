@@ -33,7 +33,7 @@ const CreateStory = () => {
           className="bg-ssorange-light p-8 rounded-lg cursor-pointer"
           onClick={() =>
             postStoryData(data, (id, json) =>
-              navigate("/editor", { state: { id: id } })
+              window.location.href = `${window.location.href}editor/${id}`
             )
           }
         >

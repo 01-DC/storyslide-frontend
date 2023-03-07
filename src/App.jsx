@@ -11,7 +11,7 @@ const App = () => {
     <div>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/editor" element={<CanvaEditor />} />
+        <Route path="/editor/:id" element={<CanvaEditor />} />
         <Route path="/saved" element={<SavedStories />} />
         <Route path="/story/:slug" element={<SlideShow />} />
         <Route path="/templates" element={<TemplatesList />} />
