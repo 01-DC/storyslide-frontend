@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect } from "react"
 import CreateStory from "../components/home/CreateStory"
 import Templates from "../components/home/Templates"
 import YourStories from "../components/home/YourStories"

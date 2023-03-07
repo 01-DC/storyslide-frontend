@@ -10,9 +10,9 @@ import { ImagesGrid } from "polotno/side-panel/images-grid"
 export const TemplatesPanel = observer(({ store }) => {
   // load data
   const { data, isLoading } = useInfiniteAPI({
-    getAPI: ({ page }) => `templates/page${page}.json`,
+    getAPI: ({ page }) => `/templates/page${page}.json`,
   })
-
+  console.log(data)
   return (
     <div style={{ height: "100%" }}>
       <ImagesGrid
