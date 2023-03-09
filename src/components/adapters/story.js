@@ -1,4 +1,8 @@
-import axios from "axios"
+import { getAxios } from '../../scripts/sdk-client';
+import Axios from 'axios';
+const axios = getAxios()
+axios.defaults.baseURL = "http://127.0.0.1:8000/v1/";
+
 
 export const postStoryData = async (body, func) => {
   try {
@@ -9,12 +13,7 @@ export const postStoryData = async (body, func) => {
   } catch (error) {
     console.log(error)
   }
-  // axios({
-  //   method: "post",
-  //   headers: { "Content-Type": "multipart/form-data" },
-  //   url: "http://127.0.0.1:8000/v1" + "/story/add/",
-  //   data: body,
-  // }).then((res) => func(res.data.data.id, res.data.data.json_data))
+
 }
 
 export const putStoryJSONData = async (body, id) => {
@@ -26,12 +25,6 @@ export const putStoryJSONData = async (body, id) => {
   } catch (error) {
     console.log(error)
   }
-  // axios({
-  //   method: "put",
-  //   headers: { "Content-Type": "application/json" },
-  //   url: "http://127.0.0.1:8000/v1" + `/story/${id}/update/`,
-  //   data: body,
-  // }).then((res) => console.log(res.data.data))
 }
 
 export const putStoryData = async (body, id) => {
@@ -43,12 +36,6 @@ export const putStoryData = async (body, id) => {
   } catch (error) {
     console.log(error)
   }
-  // axios({
-  //   method: "put",
-  //   headers: { "Content-Type": "multipart/form-data" },
-  //   url: "http://127.0.0.1:8000/v1" + `/story/${id}/update/`,
-  //   data: body,
-  // }).then((res) => console.log(res.data.data))
 }
 
 export const getStoryData = async (id) => {
@@ -58,14 +45,7 @@ export const getStoryData = async (id) => {
   } catch (error) {
     console.log(error)
   }
-  // axios({
-  //   method: "get",
-  //   url: "http://127.0.0.1:8000/v1" + `/story/${id}/get/`,
-  // }).then((res) => {
-  //   if (res.data.json_data) {
-  //     store.loadJSON(res.data.json_data)
-  //   }
-  // })
+
 }
 
 export const postSlideData = async (id, body) => {
@@ -77,12 +57,7 @@ export const postSlideData = async (id, body) => {
   } catch (error) {
     console.log(error)
   }
-  // axios({
-  //   method: "post",
-  //   headers: { "Content-Type": "multipart/form-data" },
-  //   url: "http://127.0.0.1:8000/v1" + `/story/${id}/slide/add/`,
-  //   data: body,
-  // })
+
 }
 
 export const putSlideData = async (story_id, slug, body) => {
@@ -94,12 +69,7 @@ export const putSlideData = async (story_id, slug, body) => {
   } catch (error) {
     console.log(error)
   }
-  // axios({
-  //   method: "put",
-  //   headers: { "Content-Type": "multipart/form-data" },
-  //   url: "http://127.0.0.1:8000/v1" + `/story/${id}/slide/${slug}/`,
-  //   data: body,
-  // }).then((res) => console.log(res.data.data))
+
 }
 
 export const getSlideData = async (id, slug, func, func1) => {
@@ -110,42 +80,26 @@ export const getSlideData = async (id, slug, func, func1) => {
     console.log(error)
     func1()
   }
-  // axios({
-  //   method: "get",
-  //   url: "http://127.0.0.1:8000/v1" + `/story/${id}/slide/${slug}/`,
-  // })
-  //   .then((res) => func(res.data))
-  //   .catch((err) => func1)
+
 }
 
 export const getAllStoryData = async () => {
   try {
     const res = await axios.get("/story/all/")
-    console.log(res.data.results)
-    return res.data.results
-  } catch (error) {
-    console.log(error)
-  }
-  // axios({
-  //   method: "get",
-  //   url: "http://127.0.0.1:8000/v1" + `/story/all/`,
-  // }).then((res) => {
-  //   func(res.data.results)
-  //   console.log(res.data.results)
-  // })
-}
-
-export const getStorySlugData = async (slug) => {
-  try {
-    const res = await axios.get(`/story/slug/${slug}/get/`)
+    console.log(res.data)
     return res.data
   } catch (error) {
     console.log(error)
   }
-  // axios({
-  //   method: "get",
-  //   url: "http://127.0.0.1:8000/v1" + `/story/slug/${slug}/get/`,
-  // }).then((res) => {
-  //   func(res.data)
-  // })
+
+}
+
+export const getStorySlugData = async (slug) => {
+  try {
+    const res = await Axios.get(`/story/slug/${slug}/get/`)
+    return res.data
+  } catch (error) {
+    console.log(error)
+  }
+
 }

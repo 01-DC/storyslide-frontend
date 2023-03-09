@@ -3,7 +3,6 @@ import left from "../../assets/Pathleft.svg"
 import right from "../../assets/Pathright.svg"
 import { useEffect, useState } from "react"
 import { getAllStoryData } from "../adapters/story"
-import axios from "axios"
 import { Link, useNavigate } from "react-router-dom"
 
 const YourStories = () => {
@@ -13,6 +12,7 @@ const YourStories = () => {
 
   const allStoryData = async () => {
     const data = await getAllStoryData()
+    console.log("as",data)
     setStories(data)
   }
 
