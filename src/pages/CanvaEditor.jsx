@@ -1,5 +1,4 @@
-import React, { useState } from "react"
-import { useEffect } from "react"
+import React, { useState, useEffect } from "react"
 
 import "@blueprintjs/icons/lib/css/blueprint-icons.css"
 import "@blueprintjs/core/lib/css/blueprint.css"
@@ -10,16 +9,18 @@ import { Workspace } from "polotno/canvas/workspace"
 import { SidePanel } from "polotno/side-panel"
 import { Toolbar } from "polotno/toolbar/toolbar"
 import { ZoomButtons } from "polotno/toolbar/zoom-buttons"
+
 import { createStore } from "polotno/model/store"
+import { Navbar, Alignment } from "@blueprintjs/core"
 
 import { DEFAULT_SECTIONS } from "polotno/side-panel"
 import { TemplatesSection } from "../components/editor/templates-panel"
-import EditorLayout from "../layouts/EditorLayout"
+import Modal from "../components/shared/Modal"
 import { QrSection, getQR } from "../components/editor/qrSection"
 import { SignatureSection } from "../components/editor/signatureSection"
 import { IconsSection } from "../components/editor/iconSection"
 import { LinkSection } from "../components/editor/linkSection"
-import ActionControls from "../components/editor/actionControls"
+import { DownloadButton } from "polotno/toolbar/download-button"
 import { useLocation, useParams } from "react-router-dom"
 import {
   putStoryJSONData,
@@ -64,6 +65,7 @@ const CanvaEditor = () => {
   // const location = useLocation()
   const { id } = useParams()
   const [slugVal, setSlugVal] = useState("")
+  const [showModal, setShowModal] = useState(false)
 
   const loadStoryData = async () => {
     try {
@@ -104,9 +106,28 @@ const CanvaEditor = () => {
     requestSave()
   })
 
+  const EditorTitle = () => {
+    return <Navbar.Group align={Alignment.CENTER}>Some Text Here</Navbar.Group>
+  }
+
+  const ActionControls = ({ store }) => {
+    return (
+      <div>
+        <DownloadButton store={store} />
+        <button
+          className="bg-ssorange rounded-lg p-2 text-white"
+          onClick={() => setShowModal(true)}
+        >
+          Generate Link
+        </button>
+      </div>
+    )
+  }
+
   return (
-    <EditorLayout id={id} slugVal={slugVal}>
-      <PolotnoContainer style={{ width: "100vw", height: "92.4vh" }}>
+    <div className="h-screen overflow-hidden">
+      {showModal && <Modal setShowModal={setShowModal} slugVal={slugVal} />}
+      <PolotnoContainer style={{ width: "100vw", height: "100%" }}>
         <SidePanelWrap>
           <SidePanel
             store={store}
@@ -120,13 +141,14 @@ const CanvaEditor = () => {
             downloadButtonEnabled
             components={{
               ActionControls,
+              EditorTitle,
             }}
           />
           <Workspace store={store} />
           <ZoomButtons store={store} />
         </WorkspaceWrap>
       </PolotnoContainer>
-    </EditorLayout>
+    </div>
   )
 }
 
