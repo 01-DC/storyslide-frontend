@@ -1,6 +1,5 @@
 import React, { useState } from "react"
 import { useEffect } from "react"
-import axios from "axios"
 
 import "@blueprintjs/icons/lib/css/blueprint-icons.css"
 import "@blueprintjs/core/lib/css/blueprint.css"
@@ -20,6 +19,7 @@ import { QrSection, getQR } from "../components/editor/qrSection"
 import { SignatureSection } from "../components/editor/signatureSection"
 import { IconsSection } from "../components/editor/iconSection"
 import { LinkSection } from "../components/editor/linkSection"
+import ActionControls from "../components/editor/actionControls"
 import { useLocation, useParams } from "react-router-dom"
 import {
   putStoryJSONData,
@@ -36,29 +36,10 @@ const store = createStore({
 
 store.setSize(1080, 1920)
 store.addPage()
-// console.log(data)
-// store.loadJSON(data)
-
-// store.setRole('admin');
-// const val = 'https://google.com/';
-// getQR(val).then((src) => {
-// 	store.activePage.addElement({
-// 		type: 'svg',
-// 		name: 'qr',
-// 		x: store.width / 2 - 150,
-// 		y: store.height / 2 - 150,
-// 		width: 300,
-// 		height: 300,
-// 		src,
-// 		custom: {
-// 			value: val,
-// 		},
-// 	});
-// });
 
 const sections = [
   TemplatesSection,
-  ...DEFAULT_SECTIONS.slice(0, -1),
+  ...DEFAULT_SECTIONS.slice(1, -1),
   QrSection,
   SignatureSection,
   LinkSection,
@@ -98,20 +79,6 @@ const CanvaEditor = () => {
 
   useEffect(() => {
     loadStoryData()
-    // axios({
-    //   method: "get",
-    //   url: "http://127.0.0.1:8000/v1" + `/story/${id}/get/`,
-    // })
-    //   .then((res) => {
-    //     if (res.data.json_data) {
-    //       store.loadJSON(res.data.json_data)
-    //       setSlugVal(res.data.slug)
-    //     }
-    //   })
-    //   .catch((err) => store.loadJSON())
-    // if (location.state.json && typeof (location.state.json).width != "undefined") {
-    // 	store.loadJSON(location.state.json)
-    // }
   }, [])
 
   let timeout = null
@@ -129,8 +96,6 @@ const CanvaEditor = () => {
           data.append("thumbnail", res, "thumbnail.png")
           putStoryData(data, id)
         })
-
-        // putStoryData(data, location.state.id);
       }
     }, 1000)
   }
@@ -150,7 +115,13 @@ const CanvaEditor = () => {
           />
         </SidePanelWrap>
         <WorkspaceWrap>
-          <Toolbar store={store} downloadButtonEnabled />
+          <Toolbar
+            store={store}
+            downloadButtonEnabled
+            components={{
+              ActionControls,
+            }}
+          />
           <Workspace store={store} />
           <ZoomButtons store={store} />
         </WorkspaceWrap>

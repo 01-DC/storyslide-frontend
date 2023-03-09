@@ -1,5 +1,4 @@
 import React from "react"
-import Navbar from "../components/shared/Navbar"
 import SideBar from "../components/shared/SideBar"
 
 const HomeLayout = ({ children }) => {
@@ -9,7 +8,6 @@ const HomeLayout = ({ children }) => {
         <SideBar />
       </div>
       <div className="col-span-4">
-        <Navbar />
         <div className="p-6">{children}</div>
       </div>
     </div>

@@ -12,7 +12,7 @@ const YourStories = () => {
 
   const allStoryData = async () => {
     const data = await getAllStoryData()
-    console.log("as",data)
+    console.log("as", data)
     setStories(data)
   }
 
@@ -23,6 +23,8 @@ const YourStories = () => {
   useEffect(() => {
     allStoryData()
   }, [])
+
+  if (stories?.length === 0) return <div />
 
   return (
     <div className="">
