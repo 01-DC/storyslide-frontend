@@ -1,7 +1,7 @@
 import { getAxios } from '../../scripts/sdk-client';
 import Axios from 'axios';
 const axios = getAxios()
-axios.defaults.baseURL = "http://127.0.0.1:8000/v1/";
+axios.defaults.baseURL = "https://storiez-shukapurv-n3of.live.cohesive.so/v1/";
 
 
 export const postStoryData = async (body, func) => {
