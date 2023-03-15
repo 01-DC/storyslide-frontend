@@ -135,7 +135,7 @@ const Carousel = ({ data, view, title, links }) => {
       </div>
 
       <motion.div className="grid place-content-center rounded-2xl h-full">
-        <motion.div className="relative h-frame aspect-[9/16]">
+        <motion.div className="relative h-frame aspect-mobile">
           <AnimatePresence initial={false}>
             <motion.div
               key={leftId}
@@ -143,14 +143,14 @@ const Carousel = ({ data, view, title, links }) => {
               initial={flowDirection ? "center" : "leftHidden"}
               animate="left"
               exit={"leftHidden"}
-              className="absolute h-frame aspect-[9/16] bg-center bg-cover rounded-2xl bg-no-repeat"
+              className="absolute h-frame aspect-mobile bg-center bg-cover rounded-2xl bg-no-repeat"
             ></motion.div>
             <motion.div
               variants={variants}
               key={centerId}
               initial={flowDirection ? "right" : "left"}
               animate="center"
-              className="absolute h-frame aspect-[9/16] bg-center bg-cover rounded-2xl bg-no-repeat"
+              className="absolute h-frame aspect-mobile bg-center bg-cover rounded-2xl bg-no-repeat"
             >
               {links[centerId]?.link && links[centerId]?.text && (
                 <div className="absolute left-1/2 -translate-x-1/2 -translate-y-[130%] text-black bg-white py-1 px-2 rounded-lg flex items-center gap-2 shadow-lg">
@@ -207,7 +207,7 @@ const Carousel = ({ data, view, title, links }) => {
               initial={flowDirection ? "rightHidden" : "center"}
               animate="right"
               exit={"rightHidden"}
-              className="absolute h-frame aspect-[9/16] bg-center bg-cover rounded-2xl bg-no-repeat"
+              className="absolute h-frame aspect-mobile bg-center bg-cover rounded-2xl bg-no-repeat"
             ></motion.div>
           </AnimatePresence>
         </motion.div>

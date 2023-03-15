@@ -58,21 +58,23 @@ const Templates = () => {
         </div>
       </div>
       <div
-        className="flex gap-4 items-center my-4 w-full overflow-auto"
+        className="flex gap-8 items-center my-4 w-full overflow-auto"
         ref={scrollDivRef}
       >
-        {page.items.map((template, index) => (
-          <div
-            style={{
-              backgroundImage: `url(src/templates/${template.preview})`,
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-              backgroundRepeat: "no-repeat",
-            }}
-            key={index}
-            className="border border-gray-200 h-64 w-auto p-16 rounded-lg object-fill"
-            onClick={() => postFn(template)}
-          ></div>
+        {page?.items?.map((template, index) => (
+          <div key={index}>
+            <div
+              style={{
+                backgroundImage: `url(src/templates/${template.preview})`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                backgroundRepeat: "no-repeat",
+              }}
+              className="border border-gray-200 h-72 w-auto aspect-mobile p-16 rounded-lg object-fill cursor-pointer"
+              onClick={() => postFn(template)}
+            ></div>
+            <p>{template.title}</p>
+          </div>
         ))}
       </div>
     </div>

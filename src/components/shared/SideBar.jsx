@@ -47,7 +47,11 @@ const SideBar = () => {
           <li className="">
             <NavLink
               to="/"
-              className="flex items-center p-2 text-base font-normal rounded-lg hover:bg-gray-200"
+              className={({ isActive }) =>
+                `flex items-center p-2 text-base font-normal rounded-lg hover:bg-gray-200 ${
+                  isActive ? "bg-ssorange-light" : ""
+                }`
+              }
             >
               <img src={home} alt="" />
               <span className="flex-1 ml-3 whitespace-nowrap">Home</span>
@@ -56,7 +60,11 @@ const SideBar = () => {
           <li>
             <NavLink
               to="/saved"
-              className="flex items-center p-2 text-base font-normal rounded-lg hover:bg-gray-200"
+              className={({ isActive }) =>
+                `flex items-center p-2 text-base font-normal rounded-lg hover:bg-gray-200 ${
+                  isActive ? "bg-ssorange-light" : ""
+                }`
+              }
             >
               <img src={saved} alt="" />
               <span className="flex-1 ml-3 whitespace-nowrap">Saved</span>
@@ -65,7 +73,11 @@ const SideBar = () => {
           <li>
             <NavLink
               to="/templates"
-              className="flex items-center p-2 text-base font-normal rounded-lg hover:bg-gray-200"
+              className={({ isActive }) =>
+                `flex items-center p-2 text-base font-normal rounded-lg hover:bg-gray-200 ${
+                  isActive ? "bg-ssorange-light" : ""
+                }`
+              }
             >
               <img src={temp} alt="" />
               <span className="flex-1 ml-3 whitespace-nowrap">Templates</span>

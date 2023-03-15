@@ -24,7 +24,7 @@ const SavedStories = () => {
         </div>
 
         <div className="flex flex-wrap gap-4 items-center my-4 w-full">
-          {stories.map((story, index) => (
+          {stories?.map((story, index) => (
             <div
               style={{
                 backgroundImage: `url(${story.thumbnail})`,
@@ -34,7 +34,7 @@ const SavedStories = () => {
               }}
               onClick={() => navigate(`/editor/${story.id}`)}
               key={story.id}
-              className="border border-gray-200 h-96 aspect-[9/16] p-16 rounded-lg object-fill"
+              className="border border-gray-200 h-96 aspect-mobile p-16 rounded-lg object-fill cursor-pointer"
             ></div>
           ))}
         </div>

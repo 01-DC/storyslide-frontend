@@ -30,7 +30,7 @@ const CreateStory = () => {
 
       <div className="flex gap-4 mt-4 py-4">
         <div
-          className="bg-ssorange-light p-8 rounded-lg cursor-pointer"
+          className="bg-ssorange-light p-8 rounded-lg cursor-pointer text-center"
           onClick={() =>
             postStoryData(data, (id, json) => navigate(`/editor/${id}`))
           }
