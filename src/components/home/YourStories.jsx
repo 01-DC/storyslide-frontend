@@ -4,6 +4,9 @@ import right from "../../assets/Pathright.svg"
 import { useEffect, useState } from "react"
 import { getAllStoryData } from "../adapters/story"
 import { Link, useNavigate } from "react-router-dom"
+import link from "../../assets/Link.svg"
+
+const base = "http://127.0.0.1:5173"
 
 const YourStories = () => {
   const navigate = useNavigate()
@@ -68,9 +71,18 @@ const YourStories = () => {
               onClick={() =>
                 (window.location.href = `${window.location.href}editor/${story.id}`)
               }
-              className="border border-gray-200 h-72 w-auto aspect-mobile p-16 rounded-lg object-fill"
+              className="border border-gray-200 h-72 w-auto aspect-mobile p-16 rounded-lg object-fill cursor-pointer"
             ></div>
-            <p>{story.title}</p>
+            <div className="flex justify-between py-2 items-center">
+              <p className="font-semibold">{"Template Name"}</p>
+              <button
+                onClick={() =>
+                  navigator.clipboard.writeText(`${base}/story/${story.slug}`)
+                }
+              >
+                <img src={link} />
+              </button>
+            </div>
           </div>
         ))}
       </div>

@@ -40,7 +40,7 @@ const TemplatesList = () => {
                 backgroundRepeat: "no-repeat",
               }}
               key={index}
-              className="border border-gray-200 h-96 aspect-mobile p-16 rounded-lg object-fill"
+              className="border border-gray-200 h-96 aspect-mobile p-16 rounded-lg object-fill cursor-pointer"
               onClick={() => postFn(template)}
             ></div>
           ))}

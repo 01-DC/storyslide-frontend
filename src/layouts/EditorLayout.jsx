@@ -6,7 +6,9 @@ const EditorLayout = ({ children, id, slugVal }) => {
   const [showModal, setShowModal] = useState(false)
   return (
     <div className="h-[92vh]">
-      {showModal && <Modal setShowModal={setShowModal} slugVal={slugVal} />}
+      {showModal && (
+        <Modal setShowModal={setShowModal} id={id} slugVal={slugVal} />
+      )}
       <Navbar2 id={id} setShowModal={setShowModal} />
       {children}
     </div>

@@ -25,17 +25,19 @@ const SavedStories = () => {
 
         <div className="flex flex-wrap gap-4 items-center my-4 w-full">
           {stories?.map((story, index) => (
-            <div
-              style={{
-                backgroundImage: `url(${story.thumbnail})`,
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-                backgroundRepeat: "no-repeat",
-              }}
-              onClick={() => navigate(`/editor/${story.id}`)}
-              key={story.id}
-              className="border border-gray-200 h-96 aspect-mobile p-16 rounded-lg object-fill cursor-pointer"
-            ></div>
+            <div key={story.id}>
+              <div
+                style={{
+                  backgroundImage: `url(${story.thumbnail})`,
+                  backgroundSize: "cover",
+                  backgroundPosition: "center",
+                  backgroundRepeat: "no-repeat",
+                }}
+                onClick={() => navigate(`/editor/${story.id}`)}
+                className="border border-gray-200 h-96 aspect-mobile p-16 rounded-lg object-fill cursor-pointer"
+              ></div>
+              <p>{story.title}</p>
+            </div>
           ))}
         </div>
       </div>
