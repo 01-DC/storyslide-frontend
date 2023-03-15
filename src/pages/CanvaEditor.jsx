@@ -59,7 +59,12 @@ const exportData = () => {
 }
 
 const blobExp = async () => {
-  return await store.toBlob({ pageId: store.pages[0].id })
+  return await store.toBlob({
+    pageId: store.pages[0].id,
+    quality: 0.3,
+    pixelRatio: 0.5,
+    mimeType: "image/jpeg",
+  })
 }
 
 const CanvaEditor = () => {

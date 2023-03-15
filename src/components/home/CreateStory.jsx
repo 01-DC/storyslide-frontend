@@ -32,7 +32,9 @@ const CreateStory = () => {
         <div
           className="bg-ssorange-light p-8 rounded-lg cursor-pointer text-center"
           onClick={() =>
-            postStoryData(data, (id, json) => navigate(`/editor/${id}`))
+            postStoryData(data, (id, json) =>
+              window.location.href = `${window.location.href}editor/${id}`
+            )
           }
         >
           <img src={create} alt="" />
