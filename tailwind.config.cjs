@@ -12,6 +12,9 @@ module.exports = {
       height: {
         frame: "50vh",
       },
+      aspectRatio: {
+        mobile: "9/16",
+      },
     },
   },
   plugins: [],

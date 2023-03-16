@@ -21,6 +21,7 @@ import { SignatureSection } from "../components/editor/signatureSection"
 import { IconsSection } from "../components/editor/iconSection"
 import { LinkSection } from "../components/editor/linkSection"
 import { DownloadButton } from "polotno/toolbar/download-button"
+import EditorLayout from "../layouts/EditorLayout"
 import { useLocation, useParams } from "react-router-dom"
 import {
   putStoryJSONData,
@@ -70,7 +71,6 @@ const CanvaEditor = () => {
   // const location = useLocation()
   const { id } = useParams()
   const [slugVal, setSlugVal] = useState("")
-  const [showModal, setShowModal] = useState(false)
 
   const loadStoryData = async () => {
     try {
@@ -111,28 +111,9 @@ const CanvaEditor = () => {
     requestSave()
   })
 
-  const EditorTitle = () => {
-    return <Navbar.Group align={Alignment.CENTER}>Some Text Here</Navbar.Group>
-  }
-
-  const ActionControls = ({ store }) => {
-    return (
-      <div>
-        <DownloadButton store={store} />
-        <button
-          className="bg-ssorange rounded-lg p-2 text-white"
-          onClick={() => setShowModal(true)}
-        >
-          Generate Link
-        </button>
-      </div>
-    )
-  }
-
   return (
-    <div className="h-screen overflow-hidden">
-      {showModal && <Modal setShowModal={setShowModal} slugVal={slugVal} />}
-      <PolotnoContainer style={{ width: "100vw", height: "100%" }}>
+    <EditorLayout id={id} slugVal={slugVal}>
+      <PolotnoContainer>
         <SidePanelWrap>
           <SidePanel
             store={store}
@@ -141,19 +122,12 @@ const CanvaEditor = () => {
           />
         </SidePanelWrap>
         <WorkspaceWrap>
-          <Toolbar
-            store={store}
-            downloadButtonEnabled
-            components={{
-              ActionControls,
-              EditorTitle,
-            }}
-          />
+          <Toolbar store={store} downloadButtonEnabled />
           <Workspace store={store} />
           <ZoomButtons store={store} />
         </WorkspaceWrap>
       </PolotnoContainer>
-    </div>
+    </EditorLayout>
   )
 }
 

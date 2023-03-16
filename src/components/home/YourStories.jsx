@@ -53,23 +53,25 @@ const YourStories = () => {
       </div>
 
       <div
-        className="flex gap-4 items-center my-4 w-full overflow-auto"
+        className="flex gap-8 items-center my-4 w-full overflow-auto"
         ref={scrollDivRef}
       >
-        {stories.map((story, index) => (
-          <div
-            style={{
-              backgroundImage: `url(${story.thumbnail})`,
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-              backgroundRepeat: "no-repeat",
-            }}
-            onClick={() =>
-              (window.location.href = `${window.location.href}editor/${story.id}`)
-            }
-            key={story.id}
-            className="border border-gray-200 h-64 w-auto p-16 rounded-lg object-fill"
-          ></div>
+        {stories?.map((story, index) => (
+          <div key={story.id}>
+            <div
+              style={{
+                backgroundImage: `url(${story.thumbnail})`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                backgroundRepeat: "no-repeat",
+              }}
+              onClick={() =>
+                (window.location.href = `${window.location.href}editor/${story.id}`)
+              }
+              className="border border-gray-200 h-72 w-auto aspect-mobile p-16 rounded-lg object-fill"
+            ></div>
+            <p>{story.title}</p>
+          </div>
         ))}
       </div>
     </div>

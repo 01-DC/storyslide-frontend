@@ -5,7 +5,7 @@ import Modal from "../components/shared/Modal"
 const EditorLayout = ({ children, id, slugVal }) => {
   const [showModal, setShowModal] = useState(false)
   return (
-    <div>
+    <div className="h-[92vh]">
       {showModal && <Modal setShowModal={setShowModal} slugVal={slugVal} />}
       <Navbar2 id={id} setShowModal={setShowModal} />
       {children}
