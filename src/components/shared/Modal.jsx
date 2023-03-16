@@ -3,7 +3,7 @@ import cross from "../../assets/Vectorcross.svg"
 import copyIcon from "../../assets/Groupcopy.svg"
 import tick from "../../assets/Shapestick.svg"
 
-const base = "http://127.0.0.1:5173"
+const base = "https://cohesive.so/apps/storyslide"
 
 const Modal = ({ setShowModal, slugVal }) => {
   const [copied, setCopied] = useState(false)
