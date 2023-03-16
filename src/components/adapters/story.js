@@ -1,8 +1,6 @@
-import { getAxios } from '../../scripts/sdk-client';
-import Axios from 'axios';
+import { getAxios } from "../../scripts/sdk-client"
 const axios = getAxios()
-axios.defaults.baseURL = "https://storiez-shukapurv-n3of.live.cohesive.so/v1/";
-
+axios.defaults.baseURL = "https://storiez-shukapurv-n3of.live.cohesive.so/v1/"
 
 export const postStoryData = async (body, func) => {
   try {
@@ -13,7 +11,6 @@ export const postStoryData = async (body, func) => {
   } catch (error) {
     console.log(error)
   }
-
 }
 
 export const putStoryJSONData = async (body, id) => {
@@ -45,7 +42,6 @@ export const getStoryData = async (id) => {
   } catch (error) {
     console.log(error)
   }
-
 }
 
 export const postSlideData = async (id, body) => {
@@ -57,7 +53,6 @@ export const postSlideData = async (id, body) => {
   } catch (error) {
     console.log(error)
   }
-
 }
 
 export const putSlideData = async (story_id, slug, body) => {
@@ -69,7 +64,6 @@ export const putSlideData = async (story_id, slug, body) => {
   } catch (error) {
     console.log(error)
   }
-
 }
 
 export const getSlideData = async (id, slug, func, func1) => {
@@ -80,7 +74,6 @@ export const getSlideData = async (id, slug, func, func1) => {
     console.log(error)
     func1()
   }
-
 }
 
 export const getAllStoryData = async () => {
@@ -91,15 +84,13 @@ export const getAllStoryData = async () => {
   } catch (error) {
     console.log(error)
   }
-
 }
 
 export const getStorySlugData = async (slug) => {
   try {
-    const res = await Axios.get(`/story/slug/${slug}/get/`)
+    const res = await axios.get(`/story/slug/${slug}/get/`)
     return res.data
   } catch (error) {
     console.log(error)
   }
-
 }

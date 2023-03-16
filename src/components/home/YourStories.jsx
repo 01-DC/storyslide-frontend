@@ -74,7 +74,7 @@ const YourStories = () => {
               className="border border-gray-200 h-72 w-auto aspect-mobile p-16 rounded-lg object-fill cursor-pointer"
             ></div>
             <div className="flex justify-between py-2 items-center">
-              <p className="font-semibold">{"Template Name"}</p>
+              <p className="font-semibold">{story.title}</p>
               <button
                 onClick={() =>
                   navigator.clipboard.writeText(`${base}/story/${story.slug}`)
