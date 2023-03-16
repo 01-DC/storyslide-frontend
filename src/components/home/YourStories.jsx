@@ -6,7 +6,7 @@ import { getAllStoryData } from "../adapters/story"
 import { Link, useNavigate } from "react-router-dom"
 import link from "../../assets/Link.svg"
 
-const base = "http://127.0.0.1:5173"
+const base = "https://cohesive.so/apps/storyslide"
 
 const YourStories = () => {
   const navigate = useNavigate()
