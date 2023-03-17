@@ -75,7 +75,7 @@ const CanvaEditor = () => {
   const loadStoryData = async () => {
     try {
       const data = await getStoryData(id)
-      if(data.slug){
+      if (data.slug) {
         setSlugVal(data.slug)
       }
       if (data.json_data) {
