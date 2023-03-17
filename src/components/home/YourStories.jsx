@@ -6,7 +6,7 @@ import { getAllStoryData } from "../adapters/story"
 import { Link, useNavigate } from "react-router-dom"
 import link from "../../assets/Link.svg"
 
-const base = "http://127.0.0.1:5173"
+const base = "https://cohesive.so/apps/storyslide"
 
 const YourStories = () => {
   const navigate = useNavigate()
@@ -74,7 +74,7 @@ const YourStories = () => {
               className="border border-gray-200 h-72 w-auto aspect-mobile p-16 rounded-lg object-fill cursor-pointer"
             ></div>
             <div className="flex justify-between py-2 items-center">
-              <p className="font-semibold">{"Template Name"}</p>
+              <p className="font-semibold">{story.title}</p>
               <button
                 onClick={() =>
                   navigator.clipboard.writeText(`${base}/story/${story.slug}`)
